@@ -1,0 +1,106 @@
+.TH SOELIM 1 "January 24, 2000"
+.SH NAME
+soelim \- file inclusion preprocessor for troff
+.SH SYNOPSIS
+.B soelim
+[
+.B \-l
+]
+[
+.I file ...
+]
+.SH DESCRIPTION
+.B soelim
+copies the named files (or the standard output,
+if there are none) to the standard output,
+except for lines of the form
+.RS
+.LP
+\&.so
+.I file
+.RE
+.LP
+which are replaced by the contents of the specified file,
+if it exists and is readable.
+The name ``\-'', either on the command line or
+in a
+.B \&.so
+directive, means to read from the standard input.
+.LP
+.B soelim
+is most commonly used as part of a pipeline such as
+.RS
+.LP
+soelim paper*.ms \(bv tbl \(bv pic \(bv groff -ms
+.RE
+.LP
+because
+.B pic
+and
+.B tbl
+do not themselves understand
+.B \&.so
+directives.
+.LP
+.B nroff
+and
+.B troff
+are considerably more liberal about what
+.B \&.so
+directives they will understand than
+.B soelim
+is.
+They will accept, and
+.B soelim
+will ignore, such forms as
+.RS
+.LP
+\&'so
+.I file
+.br
+\&.   so
+.I file
+.br
+\&.\efBs\es+2o
+.I file
+\&     (really!)
+.RE
+.LP
+If the
+.B \-l
+flag is given,
+.B soelim
+will include
+.B \&.lf
+directives at the start and end of each included file
+to keep
+.BR nroff ,
+.BR troff ,
+and other preprocessors informed about the current file name
+and line number.
+It will also watch for
+.B \&.lf
+directives in its own input and adjust its idea of the
+file name and line number accordingly.
+.SH OPTIONS
+.TP
+.B \-l
+Include
+.B \&.lf
+directives, as described above
+.SH SEE ALSO
+.BR nroff (1),
+.BR troff (1),
+.BR pic (1),
+.BR tbl (1)
+.SH BUGS
+As usual, null characters are not handled properly.
+Very long lines will be passed through intact
+but the line numbering will be off.
+.SH AUTHOR
+Eric Fischer <enf@pobox.com>
+.SH HISTORY
+The original
+.B soelim
+was written July 8, 1977,
+by Bill Joy, and appeared in 1BSD.
