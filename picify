@@ -1,0 +1,175 @@
+#!/usr/bin/perl
+
+$chars = 0;
+
+@twobit = ( "00", "01", "10", "11" );
+
+@threebit = ( "000", "001", "010", "011", "100", "101", "110", "111" );
+
+@fourbit = ( "0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111",
+	     "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111" );
+
+while (<>)
+{
+	chop;
+	$char[$chars] = $_;
+	$chars++;
+}
+
+print ".ie t \\{.\n";
+print ".PS\n";
+#print ".sp -1\n";
+
+$rows = 16;
+$cols = $chars / $rows;
+
+$captionwid = 0.25;
+#$bitwidth = 0.4;
+
+$wid = (3 - $captionwid) / ($cols);
+$ht = 1/6;
+$ht = 10/72;  # was 1/6, then 1/8, ...
+
+#print ".ft H\n";
+
+print "boxwid = $wid\n";
+print "boxht = $ht\n";
+print "linethick = 0\n";
+
+for ($y = 0; $y < $rows; $y++) {
+	print ".ps 7\n";
+	printf ("move to %0.5f, -%0.5f; left\n", 0, $y * $ht);
+	printf ("box invis width $captionwid \"");
+	print "$y\" rjust\n";
+
+#	printf ("move to %0.5f, -%0.5f; right\n", $cols * $wid, $y * $ht);
+#	printf ("box invis width $bitwidth \"\\&...\\fC%s\\fP\"\n",
+#			$fourbit[$y]);
+}
+
+for ($x = 0; $x < $cols; $x++) {
+	print ".ps 7\n";
+	printf ("move to %0.5f, -%0.5f; up\n", $x * $wid + $wid/2, -$ht/2);
+	printf ("box invis \"", $wid, $ht);
+	print "$x\"\n";
+
+#	printf ("move to %0.5f, -%0.5f; down\n", $x * $wid + $wid/2,
+#			$rows * $ht - $ht/2);
+#	if ($cols == 4) {
+#		printf ("box invis \"\\fC%s\\fP...\"\n", $twobit[$x]);
+#	} else {
+#		printf ("box invis \"\\fC%s\\fP...\"\n", $threebit[$x]);
+#	}
+}
+print ".ps 8\n";
+
+for ($y = 0; $y < $rows; $y++) {
+	for ($x = 0; $x < $cols; $x++) {
+		$cell = $x * $rows + $y;
+
+		$arrows = 0;
+		$text = $char[$cell];
+
+		if ($text =~ /\*\*\*/) {
+			$text =~ s/\s*\*\*\*//;
+			$arrows = 1;
+		}
+
+#		$text =~ s/\s*$//;
+
+		$text =~ s/"/\\"/g;
+
+		printf ("move to %0.5f, -%0.5f; right\n", $x * $wid, $y * $ht);
+
+		if ($arrows) {
+			print "linethick = 1\n";
+		}
+
+		if ($text =~ /^(.*)\t(.*)$/) {
+			print "box invis width boxwid/2";
+			print "\"", $1, "\"\n";
+
+			print "box invis width boxwid/2";
+			print "\"", $2, "\"\n";
+
+			print "left; box\n";
+
+			if ($arrows) {
+				print "linethick = 0\n";
+			}
+
+			print "move right boxwid/2 + boxht/8\n";
+			print "move up boxht/2\n";
+			print "line down boxht left boxht/4\n";
+		} else {
+			printf ("box ");
+			print "\"";
+			print "$text\"\n";
+		}
+
+		if ($arrows) {
+			print "linethick = 0\n";
+		}
+	}
+}
+
+print ".ps 10\n";
+print ".PE\n";
+#print ".vs 12\n";   # so double-spaced picture captions aren't so huge
+
+print ".\\}\n";
+print ".el \\{.\n";
+print "<table align=\"center\" width=\"75%\">\n";
+
+print "<tr><td></td>\n";
+for ($x = 0; $x < $cols; $x++) {
+	print "<td colspan=2 align=\"center\"><font size=-2>$x</font></td>\n";
+}
+print "</tr>\n";
+
+for ($y = 0; $y < $rows; $y++) {
+	print "<tr>\n";
+
+	print "<td align=\"right\"><font size=-2>$y</font></td>\n";
+
+	for ($x = 0; $x < $cols; $x++) {
+		$text = $char[$x * $rows + $y];
+
+		$bold = "bgcolor=\"#bbbbbb\"";
+		if ($text =~ /\*\*\*$/) {
+			$text =~ s/\s*\*\*\*$//;
+			$bold = "bgcolor=\"#ff8888\"";
+		}
+
+		$whole = int (100 / ($cols + 1));
+		$half = int ($whole / 2);
+		$whole = $half * 2;
+
+		if ($text =~ /(.*)\t(.*)/) {
+			print "<td $bold align=center width=$half%>";
+			print "<font size=-1>";
+			print "$1";
+			print "</font>";
+			print "</td> ";
+
+			print "<td $bold align=center width=$half%>";
+			print "<font size=-1>";
+			print "$2";
+			print "</font>";
+			print "</td> ";
+		} else {
+			print "<td $bold align=center width=$whole%";
+			print " colspan=2>";
+			print "<font size=-1>";
+			print "$text";
+			print "</font>";
+			print "</td> ";
+		}
+	}
+
+	print "</tr>\n";
+}
+
+print "</table>\n";
+
+print ".\\}\n";

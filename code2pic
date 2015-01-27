@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./picify < $1 > $1.pic
