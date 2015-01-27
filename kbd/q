@@ -1,0 +1,2 @@
+move to (boxwid + movewid)/2, (boxht + moveht) * 2
+right

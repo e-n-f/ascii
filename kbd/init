@@ -1,0 +1,10 @@
+movewid = 1/48
+moveht = 1/48
+
+boxwid = (3 - (12*movewid)) / 13
+boxht = (16 + 4)/72
+
+linethick = 1/6
+
+.ps 8
+.vs 8
