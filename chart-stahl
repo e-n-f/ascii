@@ -1,0 +1,187 @@
+.PS
+
+.ps 8.5
+
+linethick = 0
+boxht = 1/6
+boxwid = 0.5
+
+movewid = 0.15
+moveht = 1/12
+
+.ft C
+down
+
+One:
+
+box invis "\*0\*0\*0\*0\*0"
+box invis "\*1\*0\*0\*0\*0"
+box invis "\*0\*1\*0\*0\*0"
+box invis "\*0\*0\*1\*0\*0"
+box invis "\*0\*0\*0\*1\*0"
+box invis "\*0\*0\*0\*0\*1"
+box invis "\*1\*1\*0\*0\*0"
+box invis "\*0\*1\*1\*0\*0"
+box invis "\*0\*0\*1\*1\*0"
+box invis "\*0\*0\*0\*1\*1"
+box invis "\*1\*0\*1\*0\*0"
+box invis "\*0\*1\*0\*1\*0"
+box invis "\*0\*0\*1\*0\*1"
+box invis "\*1\*0\*0\*1\*0"
+box invis "\*0\*1\*0\*0\*1"
+box invis "\*1\*0\*0\*0\*1"
+
+.ft
+
+move to One.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 4
+move right boxwid/2
+down
+
+Onelet:
+
+box invis; up; box invis; move right boxwid/2; down; box width boxwid * 2 "carriage return"; move left boxwid/2; down
+box "e"
+box invis; up; box invis; move right boxwid/2; down; box width boxwid * 2 "letter space"; move left boxwid/2; down
+box "a"
+box "n"
+box "t"
+box "u"
+box "i"
+
+
+box invis; up; box invis; move right boxwid/2; down; box width boxwid * 2 "figure space"; move left boxwid/2; down
+box "o"
+box "s"
+box "r"
+box "h"
+box "d"
+box "l"
+box "c"
+
+
+move to Onelet.n
+move right boxwid
+down
+
+Onefig:
+
+box invis
+up
+box invis
+down
+
+box invis
+box "3"
+box invis
+box "\-"
+box ","
+box "5"
+box "7"
+box "8"
+box invis
+box "9"
+box ";"
+box "4"
+box ":"
+box "!"
+box ")"
+box ""
+
+move to Onefig.ne
+move right
+
+boxwid = 0.5
+move right boxwid/2
+
+.ft C
+down
+
+Two:
+
+box invis "\*1\*1\*1\*0\*0"
+box invis "\*0\*1\*1\*1\*0"
+box invis "\*0\*0\*1\*1\*1"
+box invis "\*1\*0\*1\*1\*0"
+box invis "\*1\*0\*0\*1\*1"
+box invis "\*1\*1\*0\*1\*0"
+box invis "\*1\*1\*0\*0\*1"
+box invis "\*1\*0\*1\*0\*1"
+box invis "\*0\*1\*1\*0\*1"
+box invis "\*0\*1\*0\*1\*1"
+box invis "\*1\*1\*1\*1\*0"
+box invis "\*0\*1\*1\*1\*1"
+box invis "\*1\*0\*1\*1\*1"
+box invis "\*1\*1\*1\*0\*1"
+box invis "\*1\*1\*0\*1\*1"
+box invis "\*1\*1\*1\*1\*1"
+
+.ft
+
+move to Two.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 4
+move right boxwid/2
+down
+
+Twolet:
+
+box "z"
+box invis; up; box invis; move right boxwid/2; down; box width boxwid * 2 "line feed"; move left boxwid/2; down
+box "m"
+box "f"
+box "b"
+box "j"
+box "w"
+box "y"
+
+
+box "p"
+box "g"
+box "k"
+box "v"
+box "x"
+box "q"
+box invis; up; box invis; move right boxwid/2; down; box width boxwid * 2 "stop"; move left boxwid/2; down
+box invis; up; box invis; move right boxwid/2; down; box width boxwid * 2 "error"; move left boxwid/2; down
+
+move to Twolet.n
+move right boxwid
+down
+
+Twofig:
+box ""
+box invis
+box "."
+box ""
+box "?"
+box "="
+box "2"
+box "6"
+box "0"
+box ""
+box "("
+box ""
+box "/"
+box "1"
+
+move to Onelet.n
+up
+box invis "let"
+
+move to Onefig.n
+up
+box invis "fig"
+
+move to Twolet.n
+up
+box invis "let"
+
+move to Twofig.n
+up
+box invis "fig"
+
+.PE

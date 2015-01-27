@@ -1,0 +1,59 @@
+.PS
+.so kbd/init
+
+.so kbd/q
+Q:
+box "1" "Q"; move
+box "2" "W"; move
+box "3" "E"; move
+box "4" "R"; move
+box "5" "T"; move
+box "6" "Y"; move
+box "7" "U"; move
+box "8" "I"; move
+box "9" "O"; move
+box "0" "P"; move
+
+.so kbd/a
+box ":" "A"; move
+box "\*{1\*}" "S"; move
+box "\*{2\*}" "D"; move
+box "\*{1\*}/" "F"; move
+box "\*{3\*}/" "G"; move
+box "\*{5\*}/" "H"; move
+box "\*{7\*}/" "J"; move
+box "\*{9\*}/" "K"; move
+box "" "L"; move
+box "\-" "="; move
+
+.so kbd/z
+Z:
+box "." "Z"; move
+box "\(Po"  "X"; move
+C: box "(" "C"; move
+box ")" "V"; move
+box "?" "B"; move
+box "\-" "N"; move
+M: box "," "M"; move
+box "/" "/"; move
+box "+"; move
+box ""; move
+
+move to Z.l; left
+move
+box "*"
+
+# move to Q.l; left
+# move
+# move down (boxht + moveht) / 2; left
+# box "fig"
+
+move to C.l
+move down; move down boxht; right
+box width 2.5*boxwid "figures"
+
+move to M.r
+move down; move down boxht; left
+box width 2.5*boxwid "letters"
+
+.PE

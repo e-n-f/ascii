@@ -1,0 +1,51 @@
+.PS
+.so kbd/init
+
+.so kbd/q
+Q:
+box "1" "Q"; move
+box "2" "W"; move
+box "3" "E"; move
+box "4" "R"; move
+box "5" "T"; move
+box "6" "Y"; move
+box "7" "U"; move
+box "8" "I"; move
+box "9" "O"; move
+box "0" "P"; move
+
+.so kbd/a
+box "\"" "A"; move
+box "#" "S"; move
+box "$" "D"; move
+box "%" "F"; move
+box "_" "G"; move
+box "&" "H"; move
+box "'" "J"; move
+box "(" "K"; move
+box ")" "L"; move
+box "=" "; :"; move
+
+.so kbd/z
+Z:
+box "@" "Z"; move
+box "\*[hammond-thing]"  "X"; move
+box "+" "C"; move
+box "\(Po" "V"; move
+box "\(ct" "B"; move
+box "*" "N"; move
+box "\(sc" "M"; move
+box "\(de" ", ?"; move
+box "." "."; move
+box "/" "\- !"; move
+
+move to Z.l; left
+move
+box "cap"
+
+move to Q.l; left
+move
+move down (boxht + moveht) / 2; left
+box "fig"
+
+.PE

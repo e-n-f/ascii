@@ -1,0 +1,106 @@
+.PS
+
+.ps 8.5
+
+linethick = 0
+boxht = 1/6
+boxwid = 0.5
+
+movewid = 0.15
+moveht = 1/12
+
+.ft C
+down
+
+One:
+
+box invis "\*1\*0\*0\*0\*0\*0"
+box invis "\*0\*1\*0\*0\*0\*0"
+box invis "\*0\*0\*1\*0\*0\*0"
+box invis "\*0\*0\*0\*1\*0\*0"
+box invis "\*0\*0\*0\*0\*1\*0"
+box invis "\*0\*0\*0\*0\*0\*1"
+box invis "\*1\*0\*1\*0\*0\*0"
+box invis "\*0\*1\*0\*1\*0\*0"
+box invis "\*0\*0\*1\*0\*1\*0"
+box invis "\*0\*0\*0\*1\*0\*1"
+box invis "\*1\*0\*0\*0\*1\*0"
+box invis "\*0\*1\*0\*0\*0\*1"
+box invis "\*1\*0\*0\*1\*0\*0"
+
+.ft
+
+move to One.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 2
+move right boxwid/2
+down
+
+Onelet:
+
+box "A"
+box "B"
+box "C"
+box "D"
+box "E"
+box "F"
+box "G"
+box "H"
+box "I"
+box "J"
+box "K"
+box "L"
+box "M"
+
+move to Onelet.ne
+move right
+
+boxwid = 0.5
+move right boxwid/2
+
+.ft C
+down
+
+Two:
+
+box invis "\*0\*1\*1\*0\*0\*0"
+box invis "\*0\*0\*1\*0\*0\*1"
+box invis "\*0\*0\*0\*1\*1\*0"
+box invis "\*1\*0\*0\*0\*0\*1"
+box invis "\*0\*1\*0\*0\*1\*0"
+box invis "\*1\*0\*1\*0\*1\*0"
+box invis "\*0\*0\*0\*1\*0\*1"
+box invis "\*1\*0\*1\*0\*0\*1"
+box invis "\*0\*1\*0\*1\*1\*0"
+box invis "\*1\*0\*0\*1\*0\*1"
+box invis "\*0\*1\*1\*0\*0\*1"
+box invis "\*1\*0\*0\*1\*1\*0"
+box invis "\*0\*1\*1\*0\*1\*0"
+
+.ft
+
+move to Two.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 2
+move right boxwid/2
+down
+
+Twolet:
+
+box "N"
+box "O"
+box "P"
+box "Q"
+box "R"
+box "S"
+box "T"
+box "U"
+box "V"
+box "W"
+box "X"
+box "Y"
+box "Z"
+
+.PE

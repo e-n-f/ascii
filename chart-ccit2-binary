@@ -1,0 +1,191 @@
+.PS
+
+.ps 8.5
+
+linethick = 0
+boxht = 1/6
+boxwid = 0.8
+
+movewid = 0.15
+moveht = 1/12
+
+down
+
+One:
+
+box invis   "00000   \*0\*0\*0\*0\*0"
+box invis   "00001   \*1\*0\*0\*0\*0"
+box invis   "00010   \*0\*1\*0\*0\*0"
+box invis   "00011   \*1\*1\*0\*0\*0"
+box invis   "00100   \*0\*0\*1\*0\*0"
+box invis   "00101   \*1\*0\*1\*0\*0"
+box invis   "00110   \*0\*1\*1\*0\*0"
+box invis   "00111   \*1\*1\*1\*0\*0"
+box invis   "01000   \*0\*0\*0\*1\*0"
+box invis   "01001   \*1\*0\*0\*1\*0"
+box invis   "01010   \*0\*1\*0\*1\*0"
+box invis   "01011   \*1\*1\*0\*1\*0"
+box invis   "01100   \*0\*0\*1\*1\*0"
+box invis   "01101   \*1\*0\*1\*1\*0"
+box invis   "01110   \*0\*1\*1\*1\*0"
+box invis   "01111   \*1\*1\*1\*1\*0"
+
+move to One.ne
+
+move right movewid
+
+boxwid = (3 - (2 * 0.8) - (3 * movewid)) / 4
+move right boxwid/2
+
+down
+
+Onelet:
+
+box invis
+up
+box invis
+down
+
+move right boxwid/2
+down
+box width boxwid*2 "null"
+move left boxwid/2
+down
+
+box "E"
+
+move right boxwid/2
+down
+box width boxwid*2 "line fd"
+move left boxwid/2
+down
+
+box "A"
+
+move right boxwid/2
+down
+box width boxwid*2 "space"
+move left boxwid/2
+down
+
+box "S"
+box "I"
+box "U"
+
+move right boxwid/2; down
+box width boxwid*2 "car ret"
+move left boxwid/2; down
+
+box "D"
+box "R"
+box "J"
+box "N"
+box "F"
+box "C"
+box "K"
+
+move to Onelet.n
+move right boxwid
+
+down
+
+Onefig:
+
+box invis
+box "3"
+box invis
+box "\-"
+box invis
+box "'"
+box "8"
+box "7"
+box invis
+box "nat"
+box "4"
+box "bell"
+box ","
+box "nat"
+box ":"
+box "("
+
+move to Onefig.ne
+move right movewid
+
+boxwid = 0.8
+move right boxwid/2
+
+down
+
+Two:
+
+box invis   "10000   \*0\*0\*0\*0\*1"
+box invis   "10001   \*1\*0\*0\*0\*1"
+box invis   "10010   \*0\*1\*0\*0\*1"
+box invis   "10011   \*1\*1\*0\*0\*1"
+box invis   "10100   \*0\*0\*1\*0\*1"
+box invis   "10101   \*1\*0\*1\*0\*1"
+box invis   "10110   \*0\*1\*1\*0\*1"
+box invis   "10111   \*1\*1\*1\*0\*1"
+box invis   "11000   \*0\*0\*0\*1\*1"
+box invis   "11001   \*1\*0\*0\*1\*1"
+box invis   "11010   \*0\*1\*0\*1\*1"
+box invis   "11011   \*1\*1\*0\*1\*1"
+box invis   "11100   \*0\*0\*1\*1\*1"
+box invis   "11101   \*1\*0\*1\*1\*1"
+box invis   "11110   \*0\*1\*1\*1\*1"
+box invis   "11111   \*1\*1\*1\*1\*1"
+
+move to Two.ne
+move right movewid
+
+boxwid = (3 - (2 * 0.8) - (3 * movewid)) / 4
+move right boxwid/2
+
+down
+
+Twolet:
+box "T"
+box "Z"
+box "L"
+box "W"
+box "H"
+box "Y"
+box "P"
+box "Q"
+box "O"
+box "B"
+box "G"
+
+move right boxwid/2; down
+box width boxwid*2 "figures"
+move left boxwid/2; down
+
+box "M"
+box "X"
+box "V"
+
+move right boxwid/2; down
+box width boxwid*2 "letters"
+move left boxwid/2; down
+
+move to Twolet.n
+move right boxwid
+down
+
+box "4"
+box "+"
+box ")"
+box "2"
+box "nat"
+box "6"
+box "0"
+box "1"
+box "9"
+box "?"
+box "nat"
+box invis ""
+box "."
+box "/"
+box "="
+
+.PE

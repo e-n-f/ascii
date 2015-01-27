@@ -1,0 +1,204 @@
+.PS
+
+.ps 8.5
+
+linethick = 0
+boxht = 1/6
+boxwid = 0.5
+
+movewid = 0.15
+moveht = 1/12
+
+.ft C
+down
+
+One:
+
+box invis "\*1\*0\*0\*0\*0"
+box invis "\*0\*0\*1\*1\*0"
+box invis "\*1\*0\*1\*1\*0"
+box invis "\*1\*1\*1\*1\*0"
+box invis "\*0\*1\*0\*0\*0"
+box invis "\*0\*1\*1\*1\*0"
+box invis "\*0\*1\*0\*1\*0"
+box invis "\*1\*1\*0\*1\*0"
+
+
+box invis "\*0\*1\*1\*0\*0"
+box invis "\*1\*0\*0\*1\*0"
+box invis "\*1\*0\*0\*1\*1"
+box invis "\*1\*1\*0\*1\*1"
+box invis "\*0\*1\*0\*1\*1"
+box invis "\*0\*1\*1\*1\*1"
+box invis "\*1\*1\*1\*0\*0"
+box invis "\*1\*1\*1\*1\*1"
+
+.ft
+
+move to One.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 4
+move right boxwid/2
+down
+
+Onelet:
+
+box "A"
+box "B"
+box "C"
+box "D"
+box "E"
+box "F"
+box "G"
+box "H"
+
+
+box "I"
+box "J"
+box "K"
+box "L"
+box "M"
+box "N"
+box "O"
+box "P"
+
+
+move to Onelet.n
+move right boxwid
+down
+
+Onefig:
+
+box invis
+up
+box invis
+down
+
+box "1"
+box "8"
+box "9"
+box "0"
+box "2"
+box "nat"
+box "7"
+box "+"
+box "nat"
+
+box "6"
+box "("
+box "="
+box ")"
+box "nat"
+box "5"
+box "%"
+
+move to Onefig.ne
+move right
+
+boxwid = 0.5
+move right boxwid/2
+
+.ft C
+down
+
+Two:
+
+box invis "\*1\*0\*1\*1\*1"
+box invis "\*0\*0\*1\*1\*1"
+box invis "\*0\*0\*1\*0\*1"
+box invis "\*1\*0\*1\*0\*1"
+box invis "\*1\*0\*1\*0\*0"
+box invis "\*1\*1\*1\*0\*1"
+box invis "\*0\*1\*1\*0\*1"
+box invis "\*0\*1\*0\*0\*1"
+
+
+box invis "\*0\*0\*1\*0\*0"
+box invis "\*1\*1\*0\*0\*1"
+
+box invis "\*1\*1\*0\*0\*0"
+box invis "\*1\*0\*0\*0\*1"
+box invis "\*0\*0\*0\*0\*1"
+box invis "\*0\*0\*0\*1\*0"
+box invis "\*0\*0\*0\*1\*1"
+box invis "\*0\*0\*0\*0\*0"
+
+.ft
+
+move to Two.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 4
+move right boxwid/2
+down
+
+Twolet:
+
+box "Q"
+box "R"
+box "S"
+box "T"
+box "U"
+box "V"
+box "W"
+box "X"
+
+
+box "Y"
+box "Z"
+
+move right boxwid/2
+down
+
+box width boxwid * 2 "carriage return"
+box width boxwid * 2 "line feed"
+box width boxwid * 2 "letter space"
+box width boxwid * 2 "figure space"
+
+move left boxwid/2; down
+box "*"
+move right boxwid/2; down
+
+box width boxwid * 2 "idle"
+
+move to Twolet.n
+move right boxwid
+down
+
+Twofig:
+box "/"
+box "\-"
+box "."
+box "nat"
+box "4"
+box "'"
+box "?"
+box ","
+box "3"
+box ":"
+
+box invis
+box invis
+box invis
+box invis
+
+box "*"
+
+move to Onelet.n
+up
+box invis "let"
+
+move to Onefig.n
+up
+box invis "fig"
+
+move to Twolet.n
+up
+box invis "let"
+
+move to Twofig.n
+up
+box invis "fig"
+
+.PE

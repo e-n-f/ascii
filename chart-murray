@@ -1,0 +1,504 @@
+.PS
+.ps 8.5
+
+boxht = 1/6
+boxwid = 0.3
+
+moveht = 1/12
+movewid = 0.15
+
+linethick = 0
+
+# move left boxwid/2
+# line right 3
+# move left 3
+# move right boxwid/2
+
+down
+.ft C
+Topdot:
+box invis "\*1\*0\*0\*0\*0"
+box invis "\*0\*0\*0\*0\*1"
+box invis "\*1\*1\*0\*0\*0"
+box invis "\*0\*1\*1\*0\*0"
+box invis "\*0\*0\*1\*1\*0"
+box invis "\*0\*0\*0\*1\*1"
+box invis "\*1\*0\*1\*0\*0"
+box invis "\*0\*1\*0\*1\*0"
+box invis "\*0\*0\*1\*0\*1"
+box invis "\*1\*0\*0\*1\*0"
+box invis "\*0\*1\*0\*0\*1"
+box invis "\*1\*1\*1\*0\*0"
+box invis "\*0\*1\*1\*1\*0"
+box invis "\*0\*0\*1\*1\*1"
+box invis "\*1\*0\*1\*1\*0"
+box invis "\*1\*1\*0\*0\*1"
+box invis "\*1\*0\*1\*0\*1"
+box invis "\*0\*1\*1\*0\*1"
+box invis "\*1\*0\*0\*1\*1"
+box invis "\*0\*1\*0\*1\*1"
+box invis "\*0\*1\*1\*1\*1"
+box invis "\*1\*1\*1\*1\*0"
+box invis "\*1\*1\*1\*0\*1"
+box invis "\*1\*0\*1\*1\*1"
+
+move
+
+box invis "\*1\*1\*0\*1\*1"
+box invis "\*1\*1\*1\*1\*1"
+
+move
+
+box invis "\*1\*0\*0\*0\*1"
+box invis "\*1\*1\*0\*1\*0"
+
+move
+
+box invis "\*0\*0\*0\*0\*0"
+box invis "\*0\*1\*0\*0\*0"
+box invis "\*0\*0\*0\*1\*0"
+box invis "\*0\*0\*1\*0\*0"
+.ft
+
+move to Topdot.ne
+move right
+boxwid = 0.22
+boxwid = (3 - 0.3 - 4*movewid) / 9
+move right boxwid/2
+down
+
+Onerls:
+box "e"
+box "t"
+box "a"
+box "i"
+box "n"
+box "o"
+box "s"
+box "r"
+box "h"
+box "d"
+box "l"
+box "u"
+box "c"
+box "m"
+box "f"
+box "w"
+box "y"
+box "p"
+box "b"
+box "g"
+box "v"
+box "k"
+box "q"
+box "x"
+move
+box "j"
+box "z"
+move
+box ","
+box "."
+move
+move right boxwid
+down
+box width boxwid*3 "release"
+box width boxwid*3 "capitals"
+box width boxwid*3 "figures"
+box width boxwid*3 "space"
+
+move
+.ps +1
+box invis "1901"
+box invis "a"
+.ps
+
+move to Onerls.n
+move right boxwid
+down
+
+Onecap:
+box "E"
+box "T"
+box "A"
+box "I"
+box "N"
+box "O"
+box "S"
+box "R"
+box "H"
+box "D"
+box "L"
+box "U"
+box "C"
+box "M"
+box "F"
+box "W"
+box "Y"
+box "P"
+box "B"
+box "G"
+box "V"
+box "K"
+box "Q"
+box "X"
+move
+box "J"
+box "Z"
+move
+box "unk"
+box "unk"
+
+move to Onecap.n
+move right boxwid
+down
+
+Onefig:
+box "\-"
+box "unk"
+box "/"
+box "unk"
+box "unk"
+box "unk"
+box "("
+box "%"
+box "unk"
+box ")"
+box "unk"
+box "unk"
+box "unk"
+box "unk"
+box "unk"
+box "\(Po"
+box "unk"
+box "unk"
+box "unk"
+box "unk"
+box "unk"
+box "unk"
+box "\""
+box "3"
+move
+box "unk"
+box "2"
+move
+box "unk"
+box "unk"
+
+move to Onefig.n
+move right
+move right boxwid
+down
+
+Fivecap:
+box "E"
+box "T"
+box "A"
+box "I"
+box "N"
+box "O"
+box "S"
+box "R"
+box "H"
+box "D"
+box "L"
+box "U"
+box "C"
+box "M"
+box "F"
+box "W"
+box "Y"
+box "P"
+box "B"
+box "G"
+box "V"
+box "K"
+box "Q"
+box "X"
+move
+move right boxwid/2
+down
+box width boxwid*2 "figures"
+box width boxwid*2 "capitals"
+move left boxwid/2
+down
+move
+box "Z"
+box "J"
+move
+move right boxwid/2
+down
+box width boxwid*2 "line"
+move left boxwid/2
+down
+box ","
+box "."
+move right boxwid/2
+down
+box width boxwid*2 "space"
+move
+.ps +1
+box invis "1905"
+box invis "b"
+.ps
+
+move to Fivecap.n
+move right boxwid
+down
+
+Fivefig:
+
+box "3"
+box "5"
+box "&"
+box "8"
+box "\(Po"
+box "9"
+box ":"
+box "4"
+box ";"
+box "\-"
+box "%"
+box "7"
+box "("
+box "?"
+box "\""
+box "2"
+box "6"
+box "0"
+box "/"
+box "'"
+box ")"
+box "\(12"
+box "1"
+box "\(34"
+move
+move boxht
+move boxht
+move
+box "!"
+box "\(14"
+move
+move boxht
+box ","
+box "."
+move boxht
+
+move to Fivefig.n
+move right
+move right boxwid
+down
+
+Eightlet:
+box "E"
+box "T"
+box "A"
+box "I"
+box "N"
+box "O"
+box "S"
+box "R"
+box "H"
+box "D"
+box "L"
+box "U"
+box "C"
+box "M"
+box "F"
+box "W"
+box "Y"
+box "P"
+box "B"
+box "G"
+box "V"
+box "K"
+box "Q"
+box "X"
+move
+move right boxwid/2
+down
+box width boxwid*2 "figures"
+box width boxwid*2 "letters"
+move left boxwid/2
+down
+move
+box "Z"
+box "J"
+move
+move right boxwid/2
+down
+box width boxwid*2  "page"
+box width boxwid*2  "line"
+move left boxwid/2
+down
+box  "+"
+move right boxwid/2
+down
+box width boxwid*2 "space"
+
+move
+.ps +1
+box invis "1908"
+box invis "c"
+.ps
+
+move to Eightlet.n
+move right boxwid
+down
+
+Eightfig:
+box "3"
+box "5"
+box  "cor"
+box "8"
+box  "\-"
+box "9"
+box  "\(Po"
+box "4"
+box ";"
+box  "\*{1\*}"
+box "prf"
+box "7"
+box  "'"
+box "?"
+box "\""
+box "2"
+box "6"
+box "0"
+box "/"
+box  "\*{3\*}/"
+box  "\o'()'"
+box  "\*{9\*}/"
+box "1"
+box  "%"
+move
+move boxht
+move boxht
+move
+box ","
+box  "\*{7\*}/"
+move
+move boxht
+move boxht
+box "."
+
+move to Eightfig.n
+move right boxwid
+move right
+down
+
+Twentyninelet:
+box "E"
+box "T"
+box "A"
+box "I"
+box "N"
+box "O"
+box "S"
+box "R"
+box "H"
+box "D"
+box "L"
+box "U"
+box "C"
+box "M"
+box "F"
+box "W"
+box "Y"
+box "P"
+box "B"
+box "G"
+box "V"
+box "K"
+box "Q"
+box "X"
+move
+move right boxwid/2
+down
+box width boxwid*2  "fig spc"
+box width boxwid*2  "erasure"
+move left boxwid/2
+down
+move
+box "Z"
+box "J"
+move
+move right boxwid/2
+down
+box width boxwid*2  "unused"
+box width boxwid*2  "column"
+box width boxwid*2  "car ret"
+box width boxwid*2  "let spc"
+move
+.ps +1
+box invis "1929"
+box invis "d"
+.ps
+
+move to Twentyninelet.n
+move right boxwid
+down
+
+Twentyninefig:
+box "3"
+box "5"
+box  ":"
+box "8"
+box "\-"
+box "9"
+box  "\*{1\*}"
+box "4"
+box  "\*{5\*}/"
+box  "\*{2\*}"
+box  "/"
+box "7"
+box  "("
+box  ","
+box  "\*{1\*}/"
+box "2"
+box "6"
+box "0"
+box  "?"
+box "\*{3\*}/"
+box  ")"
+box "\*{9\*}/"
+box "1"
+box  "\(Po"
+move
+move boxht
+move boxht
+move
+box  "."
+box "\*{7\*}/"
+
+move to Onerls.n
+up
+box invis "rls"
+move to Onecap.n
+up
+box invis "cap"
+move to Onefig.n
+up
+box invis "fig"
+
+move to Fivecap.n
+up
+box invis "cap"
+move to Fivefig.n
+up
+box invis "fig"
+
+move to Eightlet.n
+up
+box invis "let"
+move to Eightfig.n
+up
+box invis "fig"
+
+move to Twentyninelet.n
+up
+box invis "let"
+move to Twentyninefig.n
+up
+box invis "fig"
+
+.PE

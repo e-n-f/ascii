@@ -1,0 +1,212 @@
+.PS
+
+.ps 8.5
+
+linethick = 0
+boxht = 1/6
+boxwid = 0.5
+
+movewid = 0.15
+moveht = 1/12
+
+.ft C
+down
+
+One:
+
+box invis "\*0\*0\*0 \*0\*0"
+box invis "\*1\*0\*0 \*0\*0"
+box invis "\*1\*1\*0 \*0\*0"
+box invis "\*0\*1\*0 \*0\*0"
+box invis "\*0\*1\*1 \*0\*0"
+box invis "\*1\*1\*1 \*0\*0"
+box invis "\*1\*0\*1 \*0\*0"
+box invis "\*0\*0\*1 \*0\*0"
+
+move
+
+box invis "\*0\*0\*1 \*1\*0"
+box invis "\*1\*0\*1 \*1\*0"
+box invis "\*1\*1\*1 \*1\*0"
+box invis "\*0\*1\*1 \*1\*0"
+box invis "\*0\*1\*0 \*1\*0"
+box invis "\*1\*1\*0 \*1\*0"
+box invis "\*1\*0\*0 \*1\*0"
+box invis "\*0\*0\*0 \*1\*0"
+
+.ft
+
+move to One.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 4
+move right boxwid/2
+down
+
+Onelet:
+
+box invis
+box "A"
+box "\('E"
+box "E"
+box "I"
+box "O"
+box "U"
+box "Y"
+
+move
+
+box "B"
+box "C"
+box "D"
+box "F"
+box "G"
+box "H"
+box "J"
+
+move right boxwid/2
+down
+box width boxwid*2 "figure space"
+
+move to Onelet.n
+move right boxwid
+down
+
+Onefig:
+
+box invis
+up
+box invis
+down
+
+move left boxwid/2
+down
+box width boxwid*2 "unused"
+move right boxwid/2
+down
+
+box "1"
+box "&"
+box "2"
+box "\(de"
+box "5"
+box "4"
+box "3"
+
+move
+
+box "8"
+box "9"
+box "0"
+box "\*{f\*}"
+box "7"
+box "\*{h\*}"
+box "6"
+
+move to Onefig.ne
+move right
+
+boxwid = 0.5
+move right boxwid/2
+
+.ft C
+down
+
+Two:
+
+box invis "\*0\*0\*0 \*1\*1"
+box invis "\*1\*0\*0 \*1\*1"
+box invis "\*1\*1\*0 \*1\*1"
+box invis "\*0\*1\*0 \*1\*1"
+box invis "\*0\*1\*1 \*1\*1"
+box invis "\*1\*1\*1 \*1\*1"
+box invis "\*1\*0\*1 \*1\*1"
+box invis "\*0\*0\*1 \*1\*1"
+
+move
+
+box invis "\*0\*0\*1 \*0\*1"
+box invis "\*1\*0\*1 \*0\*1"
+box invis "\*1\*1\*1 \*0\*1"
+box invis "\*0\*1\*1 \*0\*1"
+box invis "\*0\*1\*0 \*0\*1"
+box invis "\*1\*1\*0 \*0\*1"
+box invis "\*1\*0\*0 \*0\*1"
+box invis "\*0\*0\*0 \*0\*1"
+
+.ft
+
+move to Two.ne
+move right
+
+boxwid = (3 - (0.5 * 2) - (3 * movewid)) / 4
+move right boxwid/2
+down
+
+Twolet:
+
+box "*"
+box "K"
+box "L"
+box "M"
+box "N"
+box "P"
+box "Q"
+box "R"
+
+move 
+
+box "S"
+box "T"
+box "V"
+box "W"
+box "X"
+box "Z"
+box "\*{t\*}"
+
+move right boxwid/2
+down
+
+box width boxwid * 2 "letter space"
+
+move to Twolet.n
+move right boxwid
+down
+
+Twofig:
+box "*"
+box "("
+box "="
+box ")"
+box "N\*{o\*}"
+box "%"
+box "/"
+box "\-"
+
+move
+
+box ";"
+box "!"
+box "'"
+box "?"
+box ","
+box ":"
+box "."
+
+move to Onelet.n
+up
+box invis "let"
+
+move to Onefig.n
+up
+box invis "fig"
+
+move to Twolet.n
+up
+box invis "let"
+
+move to Twofig.n
+up
+box invis "fig"
+
+.PE

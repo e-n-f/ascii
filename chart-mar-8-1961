@@ -1,0 +1,513 @@
+.PS
+
+.ps 7
+
+linethick = 0;
+
+movewid = 0.15
+moveht = 1/12
+
+boxwid = (3 - 5*movewid) / 6
+boxht = 1/8 - 1/72    #XXX
+boxht = 8.25 / 72
+
+down
+
+Label:
+
+box invis "0 / \h'\w@1@u'0"
+box invis "0 / \h'\w@1@u'1"
+box invis "0 / \h'\w@1@u'2"
+box invis "0 / \h'\w@1@u'3"
+box invis "0 / \h'\w@1@u'4"
+box invis "0 / \h'\w@1@u'5"
+box invis "0 / \h'\w@1@u'6"
+box invis "0 / \h'\w@1@u'7"
+box invis "0 / \h'\w@1@u'8"
+box invis "0 / \h'\w@1@u'9"
+box invis "0 / 10"
+box invis "0 / 11"
+box invis "0 / 12"
+box invis "0 / 13"
+box invis "0 / 14"
+box invis "0 / 15"
+
+move
+
+box invis "1 / \h'\w@1@u'0"
+box invis "1 / \h'\w@1@u'1"
+box invis "1 / \h'\w@1@u'2"
+box invis "1 / \h'\w@1@u'3"
+box invis "1 / \h'\w@1@u'4"
+box invis "1 / \h'\w@1@u'5"
+box invis "1 / \h'\w@1@u'6"
+box invis "1 / \h'\w@1@u'7"
+box invis "1 / \h'\w@1@u'8"
+box invis "1 / \h'\w@1@u'9"
+box invis "1 / 10"
+box invis "1 / 11"
+box invis "1 / 12"
+box invis "1 / 13"
+box invis "1 / 14"
+box invis "1 / 15"
+
+move
+
+box invis "2 / \h'\w@1@u'0"
+box invis "2 / \h'\w@1@u'1"
+box invis "2 / \h'\w@1@u'2"
+box invis "2 / \h'\w@1@u'3"
+box invis "2 / \h'\w@1@u'4"
+box invis "2 / \h'\w@1@u'5"
+box invis "2 / \h'\w@1@u'6"
+box invis "2 / \h'\w@1@u'7"
+box invis "2 / \h'\w@1@u'8"
+box invis "2 / \h'\w@1@u'9"
+box invis "2 / 10"
+box invis "2 / 11"
+box invis "2 / 12"
+box invis "2 / 13"
+box invis "2 / 14"
+box invis "2 / 15"
+
+move
+
+box invis "3 / \h'\w@1@u'0"
+box invis "3 / \h'\w@1@u'1"
+box invis "3 / \h'\w@1@u'2"
+box invis "3 / \h'\w@1@u'3"
+box invis "3 / \h'\w@1@u'4"
+box invis "3 / \h'\w@1@u'5"
+box invis "3 / \h'\w@1@u'6"
+box invis "3 / \h'\w@1@u'7"
+box invis "3 / \h'\w@1@u'8"
+box invis "3 / \h'\w@1@u'9"
+box invis "3 / 10"
+box invis "3 / 11"
+box invis "3 / 12"
+box invis "3 / 13"
+box invis "3 / 14"
+box invis "3 / 15"
+
+move to Label.n
+move right
+move right boxwid
+
+down
+
+Minutesone:
+
+box "mstr sp"
+box "blank"
+box "car ret"
+box "line fd"
+box "#"
+box "%"
+box ":"
+box ";"
+box "("
+box ")"
+box "/"
+box "'"
+box "\-"
+box "+"
+box "."
+box ","
+
+move
+
+box "0"
+box "1"
+box "2"
+box "3"
+box "4"
+box "5"
+box "6"
+box "7"
+box "8"
+box "9"
+box "$"
+box "*"
+box "?"
+box "!"
+box "upper"
+box "lower"
+
+move
+
+box "<"
+box "="
+box ">"
+box "@"
+box "A"
+box "B"
+box "C"
+box "D"
+box "E"
+box "F"
+box "G"
+box "H"
+box "I"
+box "J"
+box "K"
+box "L"
+
+move
+
+box "M"
+box "N"
+box "O"
+box "P"
+box "Q"
+box "R"
+box "S"
+box "T"
+box "U"
+box "V"
+box "W"
+box "X"
+box "Y"
+box "Z"
+box "escape"
+box "delete"
+
+move
+box invis "\s+2a\s-2"
+
+move to Minutesone.n
+
+move right boxwid
+move right
+down
+
+Minutestwo:
+
+box "mstr sp"
+box "blank"
+box "\""
+box "#"
+box "$"
+box "%"
+box "'"
+box "&"
+box "("
+box ")"
+box "?"
+box "wru"
+box "\-"
+box "+"
+box "."
+box ","
+
+move
+
+box "0"
+box "1"
+box "2"
+box "3"
+box "4"
+box "5"
+box "6"
+box "7"
+box "8"
+box "9"
+box "/"
+box "*"
+box ":"
+box ";"
+box "upper"
+box "lower"
+
+move
+
+box ""
+box ""
+box "A"
+box "B"
+box "C"
+box "D"
+box "E"
+box "F"
+box "G"
+box "H"
+box "I"
+box "J"
+box "K"
+box "L"
+box "M"
+box "N"
+
+move
+
+box "O"
+box "P"
+box "Q"
+box "R"
+box "S"
+box "T"
+box "U"
+box "V"
+box "W"
+box "X"
+box "Y"
+box "Z"
+box "car ret"
+box "line fd"
+box "escape"
+box "delete"
+
+move
+box invis "\s+2b\s-2"
+
+move to Minutestwo.n
+move right boxwid
+move right
+down
+
+Reach:
+
+box "mstr sp"
+box "blank"
+box "car ret"
+box "line fd"
+box "#"
+box "%"
+box ":"
+box ";"
+box "("
+box ")"
+box "/"
+box "'"
+box "\-"
+box "+"
+box "."
+box ","
+
+move
+
+box "0"
+box "1"
+box "2"
+box "3"
+box "4"
+box "5"
+box "6"
+box "7"
+box "8"
+box "9"
+box "$"
+box "*"
+box ""
+box ""
+box "upper"
+box "lower"
+
+move
+
+box ""
+box ""
+box ""
+box ""
+box "A"
+box "B"
+box "C"
+box "D"
+box "E"
+box "F"
+box "G"
+box "H"
+box "I"
+box "J"
+box "K"
+box "L"
+
+move
+
+box "M"
+box "N"
+box "O"
+box "P"
+box "Q"
+box "R"
+box "S"
+box "T"
+box "U"
+box "V"
+box "W"
+box "X"
+box "Y"
+box "Z"
+box "escape"
+box "delete"
+
+move
+box invis "\s+2c\s-2"
+
+move to Reach.n
+move right
+move right boxwid
+down
+
+Data:
+
+box "null"
+box "blank"
+box "\""
+box "$"
+box "#"
+box "'"
+box "("
+box ")"
+box ":"
+box ";"
+box ","
+box "*"
+box "."
+box "\-"
+box "+"
+box "/"
+
+move
+
+box "<"
+box ">"
+box "A"
+box "B"
+box "C"
+box "D"
+box "E"
+box "F"
+box "G"
+box "H"
+box "I"
+box "J"
+box "K"
+box "L"
+box "M"
+box "N"
+
+move
+
+box "O"
+box "P"
+box "Q"
+box "R"
+box "S"
+box "T"
+box "U"
+box "V"
+box "W"
+box "X"
+box "Y"
+box "Z"
+box "="
+box "@"
+box "%"
+box "\(sq"
+
+move
+
+box "0"
+box "1"
+box "2"
+box "3"
+box "4"
+box "5"
+box "6"
+box "7"
+box "8"
+box "9"
+box "?"
+box "!"
+box "control"
+box "control"
+box "control"
+box "control"
+
+move
+box invis "\s+2d\s-2"
+
+move to Data.n
+move right
+move right boxwid
+down
+
+Transmission:
+
+box "mstr sp"
+box "blank"
+box "\""
+box "$"
+box "#"
+box "'"
+box "("
+box ")"
+box ":"
+box ";"
+box ","
+box "*"
+box "."
+box "\-"
+box "+"
+box "/"
+
+move 
+
+box "0"
+box "1"
+box "2"
+box "3"
+box "4"
+box "5"
+box "6"
+box "7"
+box "8"
+box "9"
+box "?"
+box "!"
+box "line fd"
+box "car ret"
+box "figures"
+box "letters"
+
+move
+
+box ""
+box ""
+box "A"
+box "B"
+box "C"
+box "D"
+box "E"
+box "F"
+box "G"
+box "H"
+box "I"
+box "J"
+box "K"
+box "L"
+box "M"
+box "N"
+
+move
+
+box "O"
+box "P"
+box "Q"
+box "R"
+box "S"
+box "T"
+box "U"
+box "V"
+box "W"
+box "X"
+box "Y"
+box "Z"
+box ""
+box ""
+box "escape"
+box "delete"
+
+move
+box invis "\s+2e\s-2"
+.PE

@@ -1,0 +1,89 @@
+.PS
+.ps 9
+movewid = 2.75 / (14 * 3)
+boxwid = (2.75 - (14 * movewid)) / 14
+boxht = 4 * boxwid
+
+linethick = -1
+
+right
+move
+A:
+box "1" "A"; move
+box "2" "B"; move
+box "3" "C"; move
+box "4" "D"; move
+box "5" "E"; move
+box "6" "F"; move
+box "7" "G"; move
+box "8" "H"; move
+box "9" "I"; move
+box "0" "J"; move
+box "." "K"; move
+box "," "L"; move
+box ";" "M"; move
+box ":" "N"; move
+
+move to A.nw
+move left movewid
+
+boxwid = boxwid + movewid
+boxht = boxht * 7/4;
+
+move down boxht/2
+right
+
+Space:
+box
+box "" "" "" "\"" "Z"
+box "" "" "" "&" "Y"
+box "" "" "" ")" "X"
+box "" "" "" "(" "\('E"
+box
+box "" "" "" "=" "V"
+box "" "" "" "/" "U"
+box "" "" "" "\(sc" "T"
+box "" "" "" "\-" "S"
+box "" "" "" "+" "R"
+box "" "" "" "'" "Q"
+box "" "" "" "!" "P"
+O:
+box "" "" "" "?" "O"
+
+
+# as above
+
+movewid = 2.75 / (14 * 3)
+boxwid = (2.75 - (14 * movewid)) / 14
+boxht = 4 * boxwid
+
+boxht = boxht + (movewid * 1/3)
+boxwid = boxwid + (movewid * 1/3)
+
+move to O.ne
+line to Space.nw - (movewid * 1/3, 0)
+line to Space.sw - (movewid * 1/3, movewid * 1/3)
+line to O.se - (0, movewid * 1/3)
+line to O.ne
+
+move to A.w - (movewid * 1/3, movewid * 1/6)
+movewid = movewid * 2/3
+
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+box; move
+
+
+
+.PE
