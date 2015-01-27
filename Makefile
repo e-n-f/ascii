@@ -9,7 +9,8 @@ ancient.pic: ibm-ancient ancient2pic
 
 ascii.ps ascii.html: ascii.ms ancient.pic soelim/soelim tmac.s
 	./soelim/soelim -l ascii.ms | tbl | pic | groff tmac.s - > ascii.ps
-	(echo "<html>"; ./soelim -l ascii.ms | tbl | pic | nroff -Tlatin1 tmac.s - ) | ./fixul > ascii.html
+	ps2pdf ascii.ps
+	(echo "<html>"; soelim/soelim -l ascii.ms | tbl | pic | nroff -Tlatin1 tmac.s - ) | ./fixul > ascii.html
 
 soelim/soelim: soelim/soelim.c
 	(cd soelim; cc -o soelim soelim.c)
