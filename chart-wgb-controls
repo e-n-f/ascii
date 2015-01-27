@@ -1,0 +1,157 @@
+.PS
+
+.ps 8
+
+movewid = 0.15
+moveht = 1/16
+boxwid = (3 - (3 * movewid)) / 6
+boxht = 10/72
+
+linethick = 0
+
+down
+
+Asevenone:
+
+box "null"
+box "eot"
+box "eom"
+box "eoa"
+box "som"
+box "wru"
+box "ru"
+box "bell"
+box ""
+box "ff"
+box "vt"
+box "lf"
+box "ht"
+box "cr"
+box "so"
+box "si"
+
+move to Asevenone.n
+move right boxwid
+down
+
+Aseventwo:
+
+box ""
+box "stop"
+box "dc3"
+box "dc2"
+box "dc1"
+box "error"
+box "sync"
+box "eob"
+box "lem"
+box "s4"
+box "s3"
+box "s2"
+box "s1"
+box "s0"
+box ""
+box ""
+
+move to Aseventwo.n
+move right
+move right boxwid
+down
+
+Asix:
+
+box "null"
+box "ff"
+box "vt"
+box "nl"
+box "ht"
+box "space"
+box "so"
+box "si"
+
+move to Asix.n
+move right
+move right boxwid
+down
+
+Bsevenone:
+
+box "null"
+box "som"
+box "eoa"
+box "eom"
+box "eot"
+box "wru"
+box "ru"
+box "bell"
+box ""
+box "ht"
+box "nl"
+box "vt"
+box "ff"
+box "cr"
+box "so"
+box "si"
+
+move to Bsevenone.n
+move right boxwid
+down
+
+Bseventwo:
+
+box ""
+box "dc1"
+box "dc2"
+box "dc3"
+box "stop"
+box "error"
+box "sync"
+box "eob"
+box "s0"
+box "s1"
+box "s2"
+box "s3"
+box "s4"
+box "lem"
+box ""
+box ""
+
+move to Bseventwo.n
+move right
+move right boxwid
+down
+
+Bsix:
+
+box "space"
+box "ht"
+box "nl"
+box "vt"
+box "ff"
+box "f5"
+box "so"
+box "si"
+
+.ps +1
+
+move to Asevenone.ne
+up
+move
+box invis "A: seven-bit"
+
+move to Asix.n
+up
+move
+box invis "A: six-bit"
+
+move to Bsevenone.ne
+up
+move
+box invis "B: seven-bit"
+
+move to Bsix.n
+up
+move
+box invis "B: six-bit"
+
+.PE
