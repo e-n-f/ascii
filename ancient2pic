@@ -16,7 +16,7 @@ echo '.ds . \h!-0.01i!\v!-0.015i!\D!l 0.02i 0!\h!-0.01i!\v!0.015i!\v!0.05i!'
 echo '.ds u6 \v!-0.05i*6u!'
 echo '.ds u3 \v!-0.05i*3u!'
 
-tail +4 ibm-ancient |
+tail -n +4 ibm-ancient |
 sed 's/\(....\) \(............\) \(............\) \(......\) \(............\) \(......\) \(............\) \(............\) \(............\)/down|box invis ht moveht "\1"|box invis "\\*(u6\2"|move|box invis ht moveht "\1"|box invis "\\*(u6\3"|move|box invis ht moveht "\1"|box invis ht boxht\/2 "\\*(u3\4"|move|box invis ht moveht "\1"|box invis "\\*(u6\5"|move|box invis ht moveht "\1"|box invis ht boxht\/2 "\\*(u3\6"|move|box invis ht moveht "\1"|box invis "\\*(u6\7"|move|box invis ht moveht "\1"|box invis "\\*(u6\8"|move|box invis ht moveht "\1"|box invis "\\*(u6\9"|move up 7*boxht + 15*moveht|move right boxwid||/' | tr '|' '\012' |
 sed 's/_/\\*./g' | sed 's/=/\\*o/g' | sed 's/\("[^ ]*\) *"/\1"/'
 
