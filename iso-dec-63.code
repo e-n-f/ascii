@@ -1,0 +1,128 @@
+nul
+som
+eoa
+eom
+eot
+wru
+ru
+bel
+bs	***
+ht
+lf
+vt
+ff
+cr
+so
+si
+dle	***
+dc\*<1\*>
+dc\*<2\*>
+dc\*<3\*>
+stop
+error
+sync
+lem	***
+is\*<0\*>
+is\*<1\*>
+is\*<2\*>
+is\*<3\*>
+is\*<4\*>
+is\*<5\*>
+is\*<6\*>
+is\*<7\*>
+sp
+!
+\*[umlaut]	***
+\*[tilde]	#	***
+cs
+%
+&
+\*[acute]	***
+(
+)
+*
++
+,
+\-
+.
+/
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+:
+;
+<
+=
+>
+?
+nat	@
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+nat	[
+nat	\e
+nat	]
+\*[hat]	***
+\*[grave]	***
+ack	_	***
+a	***
+b	***
+c	***
+d	***
+e	***
+f	***
+g	***
+h	***
+i	***
+j	***
+k	***
+l	***
+m	***
+n	***
+o	***
+p	***
+q	***
+r	***
+s	***
+t	***
+u	***
+v	***
+w	***
+x	***
+y	***
+z	***
+nat	***
+nat	***
+nat	***
+esc
+del
