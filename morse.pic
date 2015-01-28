@@ -1,0 +1,171 @@
+.PS
+boxht = 10/72
+.ps 8
+
+.\" 3 inches; 0.5 for label; so 2.5/3 for each column
+
+boxwid = 0.5
+down
+
+Top:
+box invis "A"
+box invis "B"
+box invis "C"
+box invis "D"
+box invis "E"
+box invis "F"
+box invis "G"
+box invis "H"
+box invis "I"
+box invis "J"
+box invis "K"
+box invis "L"
+box invis "M"
+box invis "N"
+box invis "O"
+box invis "P"
+box invis "Q"
+box invis "R"
+box invis "S"
+box invis "T"
+box invis "U"
+box invis "V"
+box invis "W"
+box invis "X"
+box invis "Y"
+box invis "Z"
+
+move to Top.ne
+boxwid = 2.5/3
+move right 0
+.\" ljust is relative to the current position, not to the box margin.
+.\" I think we should really be boxwid/2 right of here.
+down
+
+.\" .ds tick \v'1p'\h'-3p'\D'l 0 0.5p'\h'3p'\D'l 0 -0.5p'\v'-1p'
+.\" .ds tick \h'-3p'\v'0.5p'\D'P 2.5p 0 0 0.5p -2.5p 0 0 -0.5p'\v'-0.5p'\h'3p'
+
+.char o \D'f 1000u'\h'-1000u'\D'P 3p 0 0 -3.5p -3p 0 0 3.5p'\h'3p'
+.char - \D'f 1000u'\h'-1000u'\D'P 3p 0 0 -0.5p -3p 0 0 0.5p'\h'3p'
+
+
+Orig:
+box invis width 0 "o-o-o------" ljust
+box invis width 0 "o-o---o-o------" ljust
+box invis width 0 "o---o-o------" ljust
+box invis width 0 "o-o-o---o------" ljust
+box invis width 0 "o------" ljust
+box invis width 0 "o---o-o-o------" ljust
+box invis width 0 "o-o---o------" ljust
+box invis width 0 "o-o-o-o------" ljust
+box invis width 0 "o-ooo------" ljust
+box invis width 0 "(same as G)" ljust
+box invis width 0 "ooo-o-ooo------" ljust
+box invis width 0 "ooooooo------" ljust
+box invis width 0 "ooo-o-o------" ljust
+box invis width 0 "ooo-o------" ljust
+box invis width 0 "o-o------" ljust
+box invis width 0 "o-o-o-o-o------" ljust
+box invis width 0 "o-o-ooo-o--------" ljust
+box invis width 0 "o---o------" ljust
+box invis width 0 "o-ooo-o------" ljust
+box invis width 0 "ooo-ooo-o------" ljust
+box invis width 0 "o-ooo-ooo------" ljust
+box invis width 0 "ooo------" ljust
+box invis width 0 "o-o-ooo------" ljust
+box invis width 0 "ooo-ooo------" ljust
+box invis width 0 "(same as I)" ljust
+box invis width 0 "(undefined)" ljust
+
+box invis width 0 "" ljust
+.ps 10
+box invis width 0 "1840 patent" ljust
+.ps
+
+move to Orig.n
+move right boxwid
+down
+
+Us:
+box invis "o-ooo---" ljust
+box invis "ooo-o-o-o---" ljust
+box invis "o-o---o---" ljust
+box invis "ooo-o-o---" ljust
+box invis "o---" ljust
+box invis "o-ooo-o---" ljust
+box invis "ooo-ooo-o---" ljust
+box invis "o-o-o-o---" ljust
+box invis "o-o---" ljust
+box invis "ooo-o-ooo-o---" ljust
+box invis "ooo-o-ooo---" ljust
+box invis "oooooo---" ljust
+box invis "ooo-ooo---" ljust
+box invis "ooo-o---" ljust
+box invis "o---o---" ljust
+box invis "o-o-o-o-o---" ljust
+box invis "o-o-ooo-o---" ljust
+box invis "o---o-o---" ljust
+box invis "o-o-o---" ljust
+box invis "ooo---" ljust
+box invis "o-o-ooo---" ljust
+box invis "o-o-o-ooo---" ljust
+box invis "o-ooo-ooo---" ljust
+box invis "o-ooo-o-o---" ljust
+box invis "o-o---o-o---" ljust
+box invis "o-o-o---o---" ljust
+
+box invis "" ljust
+.ps 10
+box invis "U.S. standard" ljust
+.ps
+
+
+move to Us.n
+move right boxwid
+down
+
+Intl:
+box invis "o-ooo---" ljust
+box invis "ooo-o-o-o---" ljust
+box invis "ooo-o-ooo-o---" ljust
+box invis "ooo-o-o---" ljust
+box invis "o---" ljust
+box invis "o-o-ooo-o---" ljust
+box invis "ooo-ooo-o---" ljust
+box invis "o-o-o-o---" ljust
+box invis "o-o---" ljust
+box invis "o-ooo-ooo-ooo---" ljust
+box invis "ooo-o-ooo---" ljust
+box invis "o-ooo-o-o---" ljust
+box invis "ooo-ooo---" ljust
+box invis "ooo-o---" ljust
+box invis "ooo-ooo-ooo---" ljust
+box invis "o-ooo-ooo-o---" ljust
+box invis "ooo-ooo-o-ooo---" ljust
+box invis "o-ooo-o---" ljust
+box invis "o-o-o---" ljust
+box invis "ooo---" ljust
+box invis "o-o-ooo---" ljust
+box invis "o-o-o-ooo---" ljust
+box invis "o-ooo-ooo---" ljust
+box invis "ooo-o-o-ooo---" ljust
+box invis "ooo-o-ooo-ooo---" ljust
+box invis "ooo-ooo-o-o---" ljust
+
+.rchar o
+.rchar -
+
+box invis "" ljust
+.ps 10
+box invis "Int'l standard" ljust
+
+move right boxwid/2
+up
+box invis ""
+.\" to make the centering come out right
+
+.ps
+
+
+
+.PE

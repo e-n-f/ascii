@@ -1,0 +1,63 @@
+.PS
+.so kbd/init
+
+.so kbd/1
+box "!" "1"; move
+box "@" "2"; move
+box "#" "3"; move
+box "$" "4"; move
+box "%" "5"; move
+box "\(ct" "6"; move
+box "&" "7"; move
+box "*" "8"; move
+box "(" "9"; move
+box ")" "0"; move
+box "_" "\-"; move
+box "+" "="; move
+
+.so kbd/q
+box "" "Q"; move
+box "" "W"; move
+box "" "E"; move
+box "" "R"; move
+box "" "T"; move
+box "" "Y"; move
+box "" "U"; move
+box "" "I"; move
+box "" "O"; move
+box "" "P"; move
+box "\(14" "\(12"; move
+
+.so kbd/a
+A:
+box "" "A"; move
+box "" "S"; move
+box "" "D"; move
+box "" "F"; move
+box "" "G"; move
+box "" "H"; move
+box "" "J"; move
+box "" "K"; move
+box "" "L"; move
+box ":" ";"; move
+box "\"" "'"; move
+
+.so kbd/z
+Z:
+box "" "Z"; move
+box ""  "X"; move
+box "" "C"; move
+box "" "V"; move
+box "" "B"; move
+box "" "N"; move
+box "" "M"; move
+box "" ","; move
+box "" "."; move
+box "?" "/"; move
+box "shift"; move
+
+move to Z.l; left
+move
+box "shift"
+ 
+.PE

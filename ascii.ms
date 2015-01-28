@@ -1,56 +1,68 @@
 .so style.ms
 .
+.
+.
+.
 .if \n[doublespace] \{.
 .	LP
-.	if 1 \fBThe Evolution of Character Codes, 1874-1968\fR
+.	if 1 \fBBaudot, Murray, Hollerith, and ASCII:\fR
+.	br
+.	if 1 \fBCharacter Codes from 1874 to 1968\fR
 .	sp
 .	if 1 Eric Fischer
 .	sp
-.	if 1 5759 N. Guilford Ave.
+.	if 1 3477A 18th St.
 .	br
-.	if 1 Indianapolis, IN 46220
+.	if 1 San Francisco, CA 94110
 .	br
-.	if 1 (317) 253-0700
+.	if 1 (415) 865-0123
 .	br
 .	if 1 enf@pobox.com
 .
 .	sp 2
 Biographical sketch:
 .	sp .5
-Eric Fischer was most recently employed
-by the Rootsweb on-line genealogy service
-as an applications programmer.
-Prior to this he was a systems programmer
-at the University of Chicago.
-He received the A.B. degree in Linguistics
+Eric Fischer lives in San Francisco
+and works for Danger, Inc. in Palo Alto, California.
+He received a bachelor's degree in Linguistics
 from the University of Chicago in 1995.
+His other historical interests include
+text-editing software
+and public transit and road systems.
 .	bp 1
 .\}
-.TL
-The Evolution of Character Codes, 1874-1968
+.if t .TL
+.if n <h1>
+Baudot, Murray, Hollerith, and ASCII:
+.br
+.if n <br>
+Character Codes from 1874 to 1968
+.if n </h1>
 .if !\n[doublespace] \{.
-.	AU
+.	if t .AU
 .	if 1 Eric Fischer
 .	br
+.	if n <br>
 .	if 1 \fC\s-1enf@pobox.com\s0\fP
 .\}
 .my-ab
 \('Emile Baudot's printing telegraph was
 the first widely adopted device
-to encode letters, numbers, and symbols
+to encode letters, numbers, and symbols 
 as uniform-length binary sequences.
 Donald Murray introduced a second successful code
-of this type, the details of which continued to evolve until
-versions of Baudot's and Murray's codes
-were standardized
-as International Telegraph Alphabets No.\~1 and No.\~2, respectively.
-These codes were used for decades before
-the appearance of computers and the changing needs of communications
-required the design and standardization of a new code.
-Years of debate and compromise resulted in
-the ECMA-6 standard in Europe,
-the ASCII standard in the United States,
-and the ISO 646 and International Alphabet No.\~5 standards internationally.
+of this type.
+Versions of Baudot's and Murray's codes
+were standardized 
+as International Telegraph Alphabets Nos.\~1 and\~2, respectively.
+A third character code, originally used with tabulating machines,
+began to be used also with computers.
+Deficiencies in these codes led to
+work by many people to design a replacement
+suitable for both computer and communications uses,
+resulting in the ISO 646 standard,
+better known by the name of its United States variant,
+ASCII.
 .my-ae
 .I "This work has been submitted to the IEEE for possible publication."
 Paper copies:
@@ -60,7 +72,7 @@ Electronic copies:
 .I "Copyright may be transferred without notice, after which this version"
 .I "may no longer be accessible."
 .sp
-.if t .if '\n[doublespace]'0' .2C
+.if 0 .if t .if '\n[doublespace]'0' .2C
 .
 .
 .
@@ -91,25 +103,2220 @@ Electronic copies:
 .
 .
 .
+.\"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
 .SH
 Introduction
 .endSH
 .PP
-Today we take it for granted that a ``plain text'' file on a computer
-can be read by nearly any program, printed on any printer,
-displayed on any screen, transmitted over any network,
-and understood equally easily by any other make or model of computer.
-Plain text is plain, though, only because of a near-universal
-agreement about what symbols and actions correspond to what
-arbitrary arrangement of bits,
-an agreement that was reached only after many years of
-design work, experimentation, and compromise.
+An alphabet provides a way to represent the sounds of spoken language
+as symbols that can be written on paper.
+A character code, analogously, provides a way to represent
+the symbols of written language as electrical patterns
+that can be stored in a computer or transmitted
+over a communications line.
 .PP
-The first portion of the paper will cover the origins of
-International Telegraph Alphabet No.\~2 (often called ``Baudot''),
-the five-unit code standardized in the 1930s.
+Just as two different alphabets can sometimes
+be used to write the same language,
+there exist different codes
+that can be used to encode the same set of characters.
+Because of the large number of these codes,
+some of which differ from others only in minor details,
+it is important that there exist standards
+so that it is possible to ensure that a piece of encoded text
+is decoded using the same code that was used to encode it.
+.PP
+In the most successful cases of code standardization,
+the fact that any encoding is taking place at all is
+almost invisible.
+With most present-day computers, neither the programmer
+nor the user is generally aware at all that the capital
+letter A is represented inside the machine as the bit pattern
+0100001,
+because this basic
+assumption is embodied in all the computer's hardware
+and software.
+Only in those rare cases where it is necessary to
+translate to or from a different code must
+any explicit coding or decoding be done.
+.PP
+Only a small number of codes have ever reached
+this high level of acceptance.
+This paper
+attempts to document
+the history of four of them:
+\('Emile Baudot's and Donald Murray's
+five-unit printing telegraph codes, versions of which were
+standardized as
+International Telegraph Alphabets Nos.\~1 and\~2, respectively;
+the twelve-hole punched card code commonly called Hollerith,
+and its six- and eight-bit binary representations BCDIC and EBCDIC;
+and
+the ISO 7-Bit Coded Character Set for Information Interchange,
+better known by the name of its United States national variant,
+ASCII.
+.SH
+Early international code standardization
+.endSH
+.PP
+In the early years of telegraphy
+there was no need for formal code standardization.
+As long as telegraph systems were not interconnected with
+each other,
+the operators of each telegraph system
+only needed to be aware of the conventions used within their own system,
+and it did not matter if other systems operated in completely
+different ways.
+Even just within Morse-type telegraph systems,
+the code in common use in Europe (\*[Figure])
+differed considerably from the one used in the United States of America
+(\*[Figure]), and neither was identical to what
+had been described in Morse's
+patent (\*[Figure]).
+.PP
+In March, April, and May, 1865, however,
+the first International Telegraphic Conference
+was held in Paris, France,
+and character codes became for the first time the subject
+of an international standard.
+A code standard was only one of many matters that had to be
+settled at the conference before the telegraph lines of different
+countries could be interconnected, and it was not a controversial topic
+and occupied little of the delegates' time.
+.PP
+The French telegraph administration proposed that the international
+standard character code should be the Morse code variant (\*[Figure])
+already in common use in Europe.
+Only a few changes to it were proposed.
+At the session on April 3rd, the Swedish delegate, Mr. Brandstr\(:om,
+proposed that
+the accented letter \(oa be added to the table,
+with the encoding \(bu--\(bu-.
+Mr. de Hakar made the additional proposal that the short-hand
+versions of the digits should be replaced by the even shorter
+encodings (\*[Figure]) used in Spain.
+At the April 4th session the committee accepted the addition
+of the letter \(oa but rejected the change to the short-hand digits.
+It also adopted a new encoding (--\ --\ --), already in common use,
+for the fraction bar (/).
+This completed the development of the first version of
+International Morse Code.
+.PP
+
+.SH
+\('Emile Baudot and his six-unit telegraph
+.endSH
+.PP
+At the beginning of the 1870s,
+telegraphy had recently been revolutionized
+by the adoption of two technologies:
+multiple telegraphy,
+which allowed more than one operator to use
+a single telegraph line at the same time,
+and printing telegraphy,
+which automatically produced a written
+record of messages received,
+something that normally had to be done by hand.
+The two technologies could not be used together, though,
+because
+it was difficult enough to keep the sending and receiving
+stations of a printing telegraph synchronized
+without introducing the additional
+voltage shifts or timing limitations
+that would have been necessary to operate
+multiple telegraph connections over the same line.
+.PP
+The creation of a multiplex printing telegraph
+required an entirely different approach
+to printing telegraphy from
+what was then in use.
+The existing House, Hughes, and Phelps printing telegraphs
+relied exclusively on timing to communicate the characters to be printed.
+In these systems, the sending and receiving stations
+each contained a wheel divided into the same number of segments
+as the number of characters the equipment could print,
+and the wheels in the sending and receiving equipment would rotate
+continually at the same speed.
+To transmit a character, the sending equipment would wait
+until the desired character had rotated into place
+and then send a single burst of electricity across
+the telegraph line.
+The receiving equipment would receive the pulse
+and would interpret it as the signal to print the character
+that had rotated into place on its own wheel.
+If the wheels had remained synchronized properly,
+the character that would print
+would be the same character the sending station had
+intended to transmit.
+.PP
+It was French telegrapher
+Jean-Maurice-\('Emile Baudot (\*[Figure])
+who invented the new approach to telegraph design
+that would allow multiplexing and printing to be used together.
+Baudot had joined the
+Administration des Postes et des T\('el\('egraphes
+as a substitute telegraph operator on July 16, 1870,
+after spending his early adulthood as a farmer.
+He had only an elementary school education,
+but after joining the telegraph administration he
+started studying electrical engineering
+in his spare time,
+and by 1872 he was ready to start work on the printing
+telegraph that made him famous.
+He devoted most of the rest of his life to
+continually improving printing telegraph technology,
+stopping only in 1899 when he was disabled by a stroke.
+.PP
+Baudot realized that
+a telegraph could communicate
+which character should be printed
+in much less time
+than it would then take to rotate the specified character into place
+and print it,
+and that
+if the transmission and selection stages were completely separated,
+the telegraph line could be connected
+in turn to each of several printers.
+Each would spend its allocated time receiving
+one encoded character,
+and once the character had been received,
+the printer would start the more time-consuming task of
+printing it on paper,
+during which time control of the telegraph line
+would be turned over to the other printers.
+.PP
+The key to making this scheme work was to divide the time
+evenly between the printers,
+and the main consequence of this requirement was that
+each character had to be represented by an encoding
+that took the same amount of time to transmit.
+A code like Morse Code,
+in which the letter Q takes four times as long
+to transmit as the letter E,
+would not be suitable unless each of the printers
+was given a long enough ``slice'' of time
+to transmit the character with the longest possible
+encoding,
+in which case all the characters with shorter
+encodings would waste time.
+The only efficient scheme
+was to encode every character
+by one of the possible
+permutations of the same number of on-or-off ``units.''
+.PP
+This was not a new idea.
+Many early telegraph designs had used multiple wires,
+rather than a single wire,
+to transmit characters,
+and had represented each character by
+one of the permutations of voltages that could
+be transmitted across the several wires simultaneously.
+If a telegraph used three wires, and each of the three could have
+three possible voltages (positive, negative, or zero),
+it could represent 3\*{3\*}, or 27, different characters.
+As Baudot realized, these same three voltages
+could be transmitted in sequence over the same wire,
+rather than over three wires in parallel,
+to represent the same 27 characters.
+.PP
+For his first-generation multiplex printing telegraph,
+patented on June 17, 1874,
+\('Emile Baudot appears to have adopted a character code
+that had previously been used on one of these three-wire, three-voltage
+telegraphs, the one invented by Edward Davy in 1838 (\*[Figure]).
+Even though Davy's equipment used three wires,
+it used six buttons to select the voltages to be transmitted,
+and six marks or spaces on paper to record the voltages that were received,
+and Baudot chose to mirror this arrangement
+by transmitting each character as a sequence
+of six, not three, units,
+each of which could be either of two, not three, voltages.
+.PP
+Davy's code is very limited in its scope.
+It encodes only the alphabet, and includes:
+.sp .5
+.IP \(bu
+no digits,
+.IP \(bu
+no punctuation,
+.IP \(bu
+no spaces between words, lines, or paragraphs,
+.IP \(bu
+no special controls, and
+.IP \(bu
+no other nonalphabetic characters.
+.sp .5
+.LP
+It divides the alphabet into five sections:
+.sp .5
+.IP \(bu
+The letters
+.B A
+through
+.B F
+are encoded with one non-zero and two zero voltages.
+When the characters are in alphabetical order
+and represented as six units,
+their pattern moves from right to left.
+.IP \(bu
+The letters
+.B G
+through
+.B L
+are encoded with one zero and two non-zero voltages,
+with the two non-zero voltages being the same.
+When the characters are in alphabetical order
+and represented as six units,
+their pattern moves from right to left.
+.IP \(bu
+The letters
+.B M
+through
+.B R
+are encoded with one zero and two non-zero voltages,
+with the two non-zero voltages being opposite.
+When the characters are in alphabetical order
+and represented as six units,
+their pattern moves from right to left
+in pairs of characters,
+the first of each pair using the ``outside'' units
+and the second of the pair using the ``inside'' units.
+.IP \(bu
+The letters
+.B S
+and
+.B T
+are encoded with
+three non-zero voltages,
+with all three being the same.
+When the characters are in alphabetical order
+and represented as six units,
+their pattern moves from right to left.
+.IP \(bu
+The letters
+.B U
+through
+.B Z
+are encoded with
+three non-zero voltages,
+with one of the voltages being different
+from the other two.
+Which pattern corresponds to which
+character seems to be arbitrary.
+.SH
+Baudot's five-unit telegraph
+.endSH
+.PP
+Davy's code was not a very efficient one for Baudot to choose
+to use with a six-unit telegraph,
+because while three three-voltage units
+can encode only 27 characters,
+six two-voltage units can encode 2\*{6\*}, or 64,
+different characters.
+Baudot's equipment
+could have supported 37 characters
+beyond those that were defined by Davy's code.
+Five two-voltage units are enough to encode 2\*{5\*}, or 32,
+different characters,
+which is more than enough
+for the letters of the alphabet,
+so for
+his second-generation telegraph,
+first demonstrated to the public in 1878,
+Baudot reduced the number of units per character to five.
+.PP
+At the same time he actually increased the number
+of characters his telegraph could communicate
+by placing two special control characters in its repertoire.
+The
+.Ctrl "figure space"
+would leave a blank space on the printed record
+and at the same time switch the printer
+from printing letters to printing
+digits and punctuation marks.
+The
+.Ctrl "letter space"
+would switch the printer back to printing letters.
+A similar dual-case arrangement had previously
+been used on some versions of the Hughes telegraph.
+
+
+
+
+.PP
+Not only did
+Baudot's five-unit code (\*[Figure]) encode a larger number
+of characters using a smaller number of units
+than the six-unit code had;
+it also assigned the characters their encodings
+in a much more systematic way from the perspective of the operator.
+Davy had allocated patterns
+to groups of letters by the number of non-zero voltages
+that would be required
+to transmit them:
+for the letters A through F,
+only a single wire would have a non-zero voltage;
+for the letters G through L,
+two of the three wires would have the same non-zero voltage;
+for the letters M through R,
+two wires would have opposite non-zero voltages;
+for the letters S and T,
+all three wires would have the same non-zero voltage;
+and for the letters U through Z,
+one of the three wires would have a different non-zero voltage
+from the other two.
+This is a reasonable enough scheme, but
+the pattern is much less visible
+in the combinations of keys that have to be pressed to transmit
+the characters.
+.PP
+For his five-unit code,
+Baudot, in contrast,
+tried to assign encodings
+based on the keys that would be pressed to generate them.
+His keyboard had five keys, directly corresponding
+to the five units that comprised each character,
+with two keys operated by the left hand
+and three by the right (\*[Figure]).
+One of the left-hand keys by itself would transmit the
+.Ctrl "letter space" ;
+the other would transmit the
+.Ctrl "figure space" ;
+and pressing both of the left-hand keys together
+produced an asterisk (*) signifying
+that the operator had just made an error.
+All the other characters were transmitted
+by a combination of right-hand and left-hand keys.
+The two left-hand keys were used to select
+either the vowels or one of three divisions
+of the consonants,
+and the three right hand keys were used to select
+a single character from one of these four divisions.
+The sequence of right-hand patterns corresponding
+to the sequence of characters within the quadrant
+was the same in each quadrant.
+.PP
+In spite of this careful design,
+Baudot's use of a five-key keyboard was a step
+backward from the earlier printing telegraphs,
+all of which had piano-like keyboards
+with one key corresponding to each character
+that could be transmitted (\*[Figure]).
+Baudot's code was not well suited to such a keyboard,
+because if the letters were put in alphabetical order,
+the corresponding digits in the figures case would
+not be in order (\*[Figure]).
+In 1878 there had been no well-established standard
+for alphabetic keyboards,
+so Baudot's choice of a five-key keyboard
+had not been an unreasonable one,
+but as typewriters became
+increasingly common,
+his keyboard design grew obsolete.
+.SH
+Donald Murray
+.endSH
+.PP
+The person who
+wanted a more typewriter-like telegraph
+enough that he designed one himself
+was New Zealand-born journalist Donald Murray.
+Like Baudot, Murray had intended to be a farmer,
+but a college-educated one:
+he attended the Agricultural College
+in Canterbury, New Zealand.
+But, as he put it, ``farming proved unsuitable,''
+and after a trip to Europe in 1886
+Murray returned to New Zealand
+and began a new career in journalism
+at the New Zealand Herald,
+while simultaneously earning a B.\~A. degree
+from New Zealand University.
+In 1891 he moved to Sydney, Australia
+where he worked for the
+Sydney Morning Herald
+and earned his M.\~A. from Sydney University.
+.PP
+Murray appears to have become interested
+in telegraphy through its application in syndicating newspaper articles,
+and specifically in printing telegraphy because it would allow
+``serial stories, special articles, and telegraphic, cable,
+or other news'' to be typeset ``without the assistance of
+any skilled labor whatever.''
+Because this was his goal,
+what he first designed was not a printer specifically for telegraph use,
+but a device that attached beneath a typewriter or typesetting
+machine and would pull its keys down just as if a person
+had pressed them.
+
+
+
+
+
+
+
+.SH
+Herman Hollerith and punched card codes
+.endSH
+.PP
+At the same time as these telegraph codes were being developed,
+another, unrelated, family of character codes was evolving
+on the tabulating machines first developed
+by Herman Hollerith.
+Early on, by 1887,
+Hollerith had established a standard format
+for his tabulating cards.
+He divided them into several columns,
+each of which was further divided into nine vertical rows.
+Any one of these rows could be punched to represent
+a digit from one to nine,
+or a column could be left unpunched to represent
+the digit zero
+(\*[Figure]a).
+.nr Hollerithfig \n[Figure]
+He made no use of multiple punches
+within the same column.
+.PP
+By 1894 Hollerith had realized that his use
+of an empty column to represent the digit zero gave no
+way to distinguish between
+missing data and data whose value was zero,
+so he added a tenth row to the top of each column.
+A punch in any of the ten rows would represent
+a digit from zero to nine,
+and an unpunched column could be detected
+and treated as an error
+(Figure \n[Hollerithfig]b).
+.PP
+By 1903 Hollerith had changed his card format again
+to add two more rows at the top of each column
+(Figure \n[Hollerithfig]c).
+It appears that originally the eleventh hole was
+designated ``X'' and was used to indicate a card
+that should be sorted separately from the others
+and treated specially.
+Later the eleventh hole was punched
+to indicate a negative number.
+The twelfth hole seems to have been designated ``R,''
+but I do not know its intended purpose.
+.PP
+In 1915 or 1916,
+Charles Foster
+realized that
+if multiple punches were used in the same
+column of a tabulating machine card,
+the combinations could be used to represent
+letters of the alphabet rather than digits.
+He used punches 11 and 0 through 9 by themselves
+to represent the letters A through L,
+the same punches in combination with punch 12
+to represent the letters M through Y,
+and punch 12 by itself to represent the letter Z
+(Figure \n[Hollerithfig]d).
+Foster's code only provided for a total of 24 characters,
+including
+.Ctrl space ,
+though,
+so he had to leave out the letters J, V, and X.
+.PP
+The omission of these letters was fixed
+by Robert Neil Williams,
+who came up with a better scheme
+in which the alphabet was divided into three,
+rather than two, ``zones,''
+which were
+selected by the 8 punch, the 9 punch, or the absence of any zone punch
+(Figure \n[Hollerithfig]e).
+Remaining punches 11 and 0 through 7 selected
+one of the nine characters from each of these zones,
+which together included the complete alphabet plus a hyphen (\-).
+Ten years later, in 1925,
+IBM's chief engineer\c
+.Ref bashe-10
+James\~W. Bryce
+began the development of alphabetic
+equipment at that company by copying the Williams code
+but including a character for ``Mc''
+instead of the hyphen (Figure \n[Hollerithfig]f).
+.PP
+A second code used by Bryce in 1930
+made the conceptual leap of allowing the same column
+to contain either alphabetic or numeric data.
+The alphabetic codes mentioned above all reused
+the single-punch codes normally used to encode
+digits to encode some of the letters of the alphabet.
+Bryce was able to retain the standard encodings
+for the digits by providing
+for six zones, selected by the 0, 11, or 12 punch,
+the 11 and 12 or 0 and 11 punches together, or
+the absence of any zone punch (Figure \n[Hollerithfig]g).
+This was enough zones that he could also provide
+four symbols:
+the comma (,), slash (/),
+cents sign (\(ct), and dollar sign ($).
+He placed the letter O out of order,
+though,
+so data encoded using this code
+could not be sorted easily.
+.PP
+Fred\~M. Carroll,
+who had invented one of IBM's first printing tabulators
+in 1916,\c
+.Ref bashe-8
+encoded the alphabet and digits
+more compactly in four zones in 1932 (Figure \n[Hollerithfig]h),
+although his code did not provide for any printing
+characters other than the letters and digits.
+It also unfortunately encoded the digit 0
+using punches 12 and 9, rather than punch 0,
+making it incompatible with the standard encoding for the digits.
+Albert\~W. Mills fixed this problem
+in his otherwise similar code (Figure \n[Hollerithfig]i),
+which retained Hollerith's original encodings for
+all the digits.
+At the same time he shifted the third zone of the alphabet
+down by one punch,
+reducing the risk of
+making the card fragile
+by punching two holes in adjacent rows of the same column.
+.PP
+Nevertheless the temptation to use the combination
+of the 0 and 1 punches
+was too strong to resist,
+and several people used it as a way
+to make a single non-alphanumeric character
+available.
+For example, Eugene\~A. Ford,
+whose association with IBM's predecessor
+the Tabulating Machine Company dated to 1899,\c
+.Ref bashe-5
+used the 0+1 combination
+to represent the period (.) in 1935 (Figure \n[Hollerithfig]j).
+It took longer
+for the 11 and 12 punches to be used by themselves
+to represent characters,
+but they had acquired their respective standard assignments
+of ``credit'' (or minus, \-) and ampersand (&) by 1943
+(Figure \n[Hollerithfig]k),
+as can be seen in a patent by Eugen Buhler.
+.PP
+Soon the desire for additional characters
+led to the use of three punches in a single column
+to supplement each zone with another two characters.
+It seems likely that the 8 punch was chosen
+as the one to be combined with others
+(specifically the 3 and 4 punches)
+because its binary representation (1000)
+can be added to a number less than 8
+using just a logical
+.I or
+operation
+rather than requiring the use of full-scale
+arithmetic.
+The 48-character set that Reynold\~B. Johnson used in 1946
+(Figure \n[Hollerithfig]l)
+in one of his pioneering dot-matrix printers\c
+.Ref bashe-275
+did not include the ``credit'' character
+from its predecessor,
+but added an apostrophe ('),
+double-dagger (\(dd),
+number sign (#),
+cents sign (\(ct),
+asterisk (*),
+period (.),
+and parentheses (\fC(\fP and \fC)\fP).
+.PP
+These character assignments did not last long, though.
+By 1951, as can be seen in
+a patent by Arnold\~B. Crowell (Figure \n[Hollerithfig]m),
+the minus sign (\-) had been restored to the 11 punch
+and the slash (/) to the 0+1 combination,
+and the eight triple-punch encodings
+had been definitively assigned to the
+number sign (#), at sign (@),
+period (.),
+``lozenge'' (\*[lozenge]),
+dollar sign ($),
+asterisk (*),
+comma (,),
+and percent sign (%).
+Most of these characters were clearly
+chosen because of their common use,
+but I do not know why the lozenge
+was included.
+.SH
+Variations of the punched card code
+.endSH
+.PP
+The code just described,
+commonly known as ``Hollerith'' even though he had nothing to do
+with most of its features,
+became the de facto standard for punched card use,
+but variations soon developed.
+For IBM's Type 701 computer,
+for instance,
+the ampersand (&)
+was replaced by a plus sign (+),
+which was more useful for the
+mathematical applications for which
+the computer was intended.
+In addition,
+the 701's printer had the ability
+to detect whether it had printed a character
+different from what the computer had told it to print,
+but it could only detect
+problems corresponding to punches 1 through 9.
+It did not have the ability to check
+whether a character was selected
+from the correct zone,
+so it could not distinguish
+between the plus (+) and minus (\-)
+signs, the encodings for which used only zone punches.
+To make it possible to
+print plus and minus signs
+with error checking,
+the number sign (#) and at sign (@)
+were replaced by a second plus and minus sign,
+respectively.
+IBM called the standard 48-character code
+type arrangement A,
+and the 701 variation
+type arrangement G.
+.PP
+A further divergence was necessary
+on the IBM 704 computer to add the special
+characters needed for the Fortran programming language.
+The percent sign (%) and lozenge (\*[lozenge])
+were replaced, respectively,
+by left and right parentheses (\fC(\fP and \fC)\fP),
+and the extra plus sign (+)
+was replaced by an equals sign (=).
+The result was called type arrangement F.
+A later version of the Fortran character set
+replaced the second minus sign (\-)
+by an apostrophe ('),
+resulting in what was called type arrangement H.
+There were also type arrangements B, C, D, E, J, and K,
+each of them varying in some minor way from arrangement A
+(\*[Figure]).
+.PP
+Even greater variability was found in the ways
+card encodings for characters were represented
+in the memory of binary computers (\*[Figure]).
+It would have been possible to represent each potential
+punch of a card column by a single bit of memory,
+for a total of 12 bits per character,
+but this would have been an excessive number
+because 12 bits are enough to encode
+2\*{12\*}, or 4096,
+different characters,
+and memory was too expensive to be wasted
+using more bits per character than were necessary.
+The standard method that instead came into use was
+to represent each card-code character
+using only six bits:
+two for the zone punches,
+and the remaining four for the binary-coded-decimal
+representation of punches 1 through 9.
+.PP
+This sounds more straightforward than it actually is.
+Some computers, such as most of IBM's, were designed in such a way that
+they naturally used the binary representation of 0 (0000)
+to encode the digit 0,
+the binary representation of 1 (0001) for the digit 1,
+and so on through the binary representation of 9 (1001)
+for the digit 9.
+Others, notably Univac, used ``excess three'' arithmetic,
+in which the digit 0 was naturally encoded
+by the binary representation of 3 (0011),
+the digit 1 by the representation of 4 (0100),
+and so on through the digit 9, encoded
+by the binary representation of 12 (1100).
+Whichever representation was used,
+a special case would generally be made for the digit 0,
+which, because 0 was used as a zone punch,
+appeared on cards in a different zone
+from the rest of the digits.
+In some computers the special case moved the digit 0
+to the encoding preceding the digit 1;
+in others it moved the digit 0
+to the encoding following the digit 9.
+.PP
+There were also different philosophies about what
+bit patterns should be used to represent the zone punches.
+IBM's ``commercial'' equipment
+represented
+the 0 zone by 16 (binary 01\|0000),
+the 11 zone by 32 (binary 10\|0000),
+and the 12 zone by 48 (binary 11\|0000),
+and the lack of a zone punch by 0 (binary 00\|0000).
+Its ``scientific'' equipment,
+and Univac's equipment,
+in contrast,
+represented the lack of a zone punch by 48 (binary 11\|0000),
+the 12 zone by 0 (binary 00\|0000),
+the 11 zone by 16 (binary 01\|0000),
+and the 0 zone by 32 (binary 10\|0000).
+The former was a more straightforward conversion,
+but the latter put the alphabet in the right order for sorting.
+.PP
+So even if two computers used the same encodings
+for the same characters on cards,
+which they frequently did not,
+they were likely to use incompatible encodings
+in memory and on magnetic or paper tape.
+There was absolutely no standard,
+either on cards or in memory,
+for any characters a computer might
+support beyond the basic 48.
+By 1955 the situation had
+become sufficiently intolerable
+that Herbert Grosch
+urged the attendees of the Eastern Joint Computer Conference to
+``register common codes so that `a' will always be `a'
+and `7' will always be `7,' or so that we can program the
+translation.''\c
+.Ref grosch-1955
+But it was not until several years later
+that any serious standardization
+effort got underway.
+.SH
+The search for a better code
+.endSH
+.PP
+Instead,
+the number of incompatible codes continued to grow
+as people invented
+new codes designed to eliminate
+some of the flaws
+that were becoming increasingly
+obvious in the de facto standard punched card code.
+As a graduate student at Stanford University in 1959,
+U.\~S. Army Signal Corps Captain
+William\~F. Luebbert created one of the most notable
+of these character codes (\*[Figure])
+for the Signal Corps's Fieldata project.
+It was subsequently adopted as an internal standard
+by the U.\~S. Department of Defense.
+And in 1960
+at IBM, Robert\~W. Bemer, Werner Buchholz, E.\~G. Law, Howard\~J. Smith,
+and F.\~A. Williams devised what they named the Extended Character Set
+(\*[Figure]).
+Its immediate application was for IBM's 7030 ``STRETCH'' computer,
+but its creators ``intended that the design of future
+equipment conform to this standard code whenever the added
+versatility of an extended character set is desired.''
+.PP
+Both of these differed in two notable ways from
+the code used on punched cards.
+First, they made the letters
+of the alphabet contiguous
+rather than leaving the gaps (and additional characters)
+that appeared
+between the letters I and J and the letters R and S
+in the punched card code.
+Second, they factored keyboard layout,
+at least to some extent, into the design.
+In the Fieldata code,
+shifted characters were placed
+in adjacent columns to their unshifted counterparts,
+so pressing the shift key would flip the 010000
+bit in the character a key normally generated
+and generate the shifted character instead.
+In the STRETCH code,
+shifted characters were placed
+directly adjacent to their unshifted counterparts,
+so pressing the shift key would flip the 00000001 bit
+to produce the shifted character.
+.PP
+If many people had continued to try to
+devise the ideal character code independently,
+it would have led to even greater chaos than already existed,
+but fortunately standards organizations eventually became interested
+in the problem.
+In 1959, the British Standards Institute published
+a standard for the encoding of characters on punched cards
+and began work on a standard for paper tape.
+They first intended to develop a five-bit standard,
+with separate letter and figure shifts, like the
+International Telegraph Alphabets (\*[Figure])
+but then changed their focus to a family of related
+codes, including a six-bit one (\*[Figure])
+directly suited to computer use.
+Hugh McGregor Ross
+was the most visible
+participant in the British code standardization effort,
+but credited the work to
+``many colleagues,
+particularly Mr. G.\~E. Felton, Dr. S. Gill,
+Mr. I.\~V. Idelson, and Dr. C.\~H. Lindsey.''
+.PP
+In the United States, a subcommittee of
+the Electronic Industries Association
+began meeting to address the same issue in 1959
+and in May, 1960 proposed a possible standard
+for the encodings of the alphabet and digits (\*[Figure]),
+with consideration also given to using
+the alphanumeric portion of the Fieldata code
+or of a six-bit subset of the STRETCH code
+as possible alternative standards.
+In January, 1960, the American Standards Association
+(now the American National Standards Institute, ANSI)
+also formed a committee, X3, for data processing standards.
+Part of its charter was to develop ``a single standard
+for logical representation of characters and character format
+in the media used for interchange of instruction, data, and
+control information between data processing equipments,
+together with orderly provision for expansion and alternatives.''
+On August 4,
+that task was delegated to a subcommittee, X3.2
+(the name of which was often spelled X3-2 until late 1961).\c
+.Ref macon-june-9-1961 utman-july-1963
+.SH
+Early activities of the X3.2 subcommittee
+.endSH
+.PP
+On September 15, 1960, Irving\~C. Liggett,
+the IBM employee who had been made chairman of the X3.2 subcommittee,
+sent letters to prospective members
+inviting them to a meeting to be held October 4 in New York City.
+Most of the invitees worked for companies that made computers
+(Royal McBee, RCA, Minneapolis-Honeywell, Remington Rand UNIVAC,
+IBM, NCR, Burroughs); others were from makers of office supplies
+(UARCO, Standard Register, Moore Business Forms, Recordak,
+Addressograph-Multigraph) or calculators (Monroe, Friden);
+and one was from the U.\~S. Navy.
+Four days later, Liggett
+sent a second letter to William\~F. Luebbert,
+who had since become an associate professor
+at the United States Military Academy at West Point,
+inviting him to attend as well.
+.PP
+The subcommittee met as scheduled on October 4, 1960.
+According to the minutes of the meeting,
+``the group reached a tentative outline of an approach to
+the problem.''
+They would first
+``determine characters desired in a set or subset,''
+then
+``determine the sequence or order of the characters,''
+and finally,
+``considering the medium involved, determine the coded
+representation of the characters.''
+Chairman Liggett added that
+``the major question seems to be,
+`Should we modify an existing concept or develop a new concept
+or concepts?
+Further, if a new concept is found to be the best approach,
+what suggestions can be made to facilitate conversion?'\|''
+.PP
+At the following meeting on November 15, 1960,
+``it was suggested that an attempt be made to identify
+standards for punched cards and magnetic tape...
+to be closely followed by standards for paper tape
+and printer output on the same basis;
+such standards to be identified within a few months
+and followed by a future set.''
+In addition to the urgent need for code standardization
+already felt by those in the industry,
+``it was noted that the next ISO [International Organization
+for Standardization] meeting would be held in
+June or July 1961 [and] it was felt that X3-2 must demonstrate
+concrete progress by that time and hopefully have identified
+a limited family of recommended standards''
+to present at the international meeting.
+.SH
+Bell System representatives join the effort
+.endSH
+.PP
+At a third meeting December 2, 1960,
+two new members joined the subcommittee:
+John\~H. Craig of AT&T and
+Allen\~L. Whitman of Bell Telephone Laboratories,
+both representing branches of the giant
+Bell System telecommunications monopoly.
+By this time the office supply manufacturers
+were already losing interest in code standardization
+and had stopped sending representatives to the meetings,
+leaving the effort almost entirely in the hands
+of the computer manufacturers.
+But the appearance of the new members from the Bell System
+ensured that from this point on,
+the subcommittee's work would be on a standard
+intended as much for communications as it was for computers.
+.PP
+To a much greater extent than anyone else on the subcommittee,
+Craig and Whitman felt
+``the need for some fast action.''
+Their sense of urgency was due to AT&T's plans to
+replace its entire 60,000-station manually-switched TWX teleprinter
+network with a new direct-dial network on August 31, 1962.
+At that time it would offer customers the chance
+to replace their existing teleprinters,
+which used a variation of International Telegraph Alphabet No. 2,
+with new equipment that would allow faster operation
+and would feature a keyboard much more similar to that of a
+standard typewriter, without the need to switch between ``letters''
+and ``figures'' cases.
+To make the switch possible,
+the company would need a new six-unit character code
+to use in place of International Telegraph Alphabet No. 2
+on the new equipment.
+Their plan was to use a version of the Fieldata code,
+modified to add the control characters they needed
+and to put some of the punctuation in more conventional
+locations on the keyboard (\*[Figure]).
+.PP
+Other telegraph organizations had also shown
+interest in the prospect of a six-unit code for telegraphy.
+In 1952, I.\~S. Coggeshall, the Director of Planning for
+Western Union's International Communications Department,
+had observed that
+``a 6-unit general purpose printer would afford 2\*{6\*}\|=\|64
+combinations of characters and controls and has been proposed
+to increase the usefulness of printers in certain language
+applications.
+Among other things, it would make possible tabulators and
+back-spacers.''\c
+.Ref coggeshall-jan-1953
+And at the December, 1956 Plenary Assembly of the CCIT in Geneva,
+one of ``the new questions set for study [was] one related
+to a possible need for extending the facilities offered by
+the present 5-unit telegraph alphabet, perhaps by the
+introduction, under agreed conditions, of a 6-unit code.''
+.PP
+In 1958, the CCITT (the organization formed in 1957
+by the merger of the former
+CCIT and CCIF) held a conference in Warsaw to consider the
+details of this six-unit code.
+There was ``general agreement... that it was premature
+at that time to standardise a new telegraph alphabet,''\c
+.Ref renton-oct-11-1961
+but the attendees did determine
+a list of accent
+marks that would have to appear in any code the committee
+later standardized: the
+.Code acute
+(\*[acute]),
+.Code grave
+(\*[grave]),
+.Code circumflex
+(\*[hat]),
+.Code umlaut
+(\*[umlaut]), and
+.Code tilde
+(\*[tilde]).\c
+.Ref ccitt-may-13-1963
+At its December, 1960 meeting, the CCITT
+established a Working Party responsible for
+further development of the new telegraph code.
+.PP
+No one could yet say
+what might result from
+this international effort to design a new six-unit telegraph standard,
+but
+X3.2 chairman Irving Liggett was happy
+that the Bell representatives hoped
+``to have [their] character set and code representation
+conform as closely as possible to any future ASA standard''
+and that they were already trying to be as compatible
+as possible with Fieldata.
+``This could be the X3-2 code if we work fast enough,''
+he wrote.
+.PP
+Not everyone on the subcommittee was as happy
+with the Bell representatives' plans.
+After the January 11-12, 1961 meeting,
+Roy Reach,
+Minneapolis-Honeywell's representative,
+wrote that
+``there was considerable pressure from one member in particular,
+Mr. Auwaerter of Teletype (with his associates from the AT&T
+system, Messrs. Craig of AT&T and Whitman of Bell Labs) to
+incorporate all of the Teletype control signals (13 total)
+as part of the `major usage' subset.
+There appeared to be some uniform feeling generated
+that this was representative of the communication problem.''
+.PP
+It was John Auwaerter's first X3.2 meeting,
+and no doubt the tension was compounded by the appearance
+of a third subcommittee member from the Bell System at
+the same meeting where
+it had been decided that ``one and only one voting member
+will be accepted from any particular organization or corporation.''
+Since AT&T, Teletype, and Bell Labs were separately incorporated,
+each of them could send a representative.
+IBM was also doubly represented because
+the subcommittee's chairman worked for the company.
+.SH
+Decisions about structure
+.endSH
+.PP
+In spite of this tension, some concrete progress was made.
+Everyone in attendance agreed that the code should
+contain the 26 letters of the alphabet,
+ten digits,
+space,
+an ``escape'' code to give access to other sets of characters,
+and the following punctuation:
+period (.), minus sign (\-),
+parentheses (\fC(\fP and \fC)\fP),
+slash (/),
+asterisk (*),
+number sign (#),
+comma (,),
+and percent sign (%).
+Each of the members was asked to bring to the following
+meeting a complete list of the 64 characters he would
+like to have in the code and what order he thought they
+should sort in.
+.PP
+At the February 9-10 and March 8-9, 1961 meetings,
+disagreements continued as
+``the delegates from AT&T and Teletype
+made very vocal demands about the code, based on the savings
+to them of a relay contact or coil.''
+In spite of their interest in
+developing a single standard that would be suitable
+for both computers and communications,
+what they wanted from a code was not very closely
+aligned with what people from the computer industry wanted.
+.PP
+The Bell System representatives didn't care much what order
+the characters were in, except that they were very insistent
+that the characters in two adjacent columns of the code be
+arranged in such a way that each two characters that shared a row
+would make sense as the shifted
+and unshifted characters on the same key of a keyboard.
+They also wanted plenty of control characters:
+at a minimum,
+.Ctrl "carriage return" ,
+.Ctrl "line feed" ,
+.Ctrl "null" ,
+.Ctrl "delete" ,
+.Ctrl "bell" ,
+and
+.Ctrl "who are you" .'' ``
+.PP
+The computer industry representatives,
+in contrast,
+cared almost nothing about control characters
+or keyboard arrangements,
+but wanted the digits and letters to be in order,
+with the digits in the top ten rows of a column.
+They also wanted related symbols to be grouped together
+in adjacent rows of the same column.
+Furthermore they
+wanted certain punctuation marks
+(period, comma, slash, hyphen) to be in a different
+column from the digits
+so that a simple transformation
+could be used to
+sort these symbols before, and the digits after,
+the alphabet.\c
+.Ref bemer-7-nov-1961
+They also wanted the six characters either following
+the digits or in the adjacent column
+to be mathematically-oriented symbols
+that would make sense in a 4-bit subset with the digits.
+.PP
+At the March 8-9, 1961 meeting,
+the subcommittee
+did not attempt to fully reconcile these conflicting
+requirements, but instead produced
+two possible candidates for a standard code,
+one (Figure \n[Sixbitfig]a) approximating the ``logical'' organization
+favored by people from the computer industry,
+and the other (figure \n[Sixbitfig]b) more concerned with the keyboard layout
+that would correspond to it.
+One or the other would eventually have to prevail.
+.SH
+The move to seven bits
+.endSH
+.PP
+It was beginning to look as though it might not be
+possible to resolve the conflict between
+computing and commnications needs
+within the constraints
+imposed by the size of a six-bit code.
+All the discussion up to this point had focussed on
+the idea of a six-bit standard,
+but at the April 12-13, 1961 meeting
+``the point was brought forward that it \fImight\fP be desirable
+to standardize a seven bit set instead of a six bit set
+as the standard for information interchange for communications
+and data processing.''
+At the April 26-27, 1961 meeting
+the idea was elaborated:
+``The structure would call for 64 characters which could
+be printed and 64 controls and special characters....''
+This seven-bit organization would allow plenty of room in the code for
+all the control characters that communications people wanted,
+while opening up space in a 64-character subset for all the
+printing characters that data processing people wanted.
+.PP
+How these 64 control characters would be generated from
+a keyboard is not explicitly stated in the minutes.
+But keyboards for Fieldata had included a key called Control
+that could be used in combination with any other keyboard keys
+to gain access
+to an additional 64 transmission control characters.
+The same technique had begun to be used with the X3.2 code
+by July, 1961,
+and was probably part of the plan
+from the moment it was expanded to seven bits.
+.PP
+At an informal meeting May 8 and 11, 1961
+(preceding and following the Western Joint Computer
+Conference in Los Angeles)
+``the philosophy of a family of sets including the range
+from 4 level through 8 level was again examined and found
+to be sound.
+The 7 level set was identified as the prime set for
+information interchange and communications.''
+.PP
+The minutes continue:
+``After some study two organizations of the 7 level set seemed
+most promising.
+The first would locate the 64 control codes and `non printing'
+specials in the lower half of the set and the 64 `printing'
+graphics in the high half of the set.
+[This] has the disadvantage of requiring the `delete' code
+in the `information set.'
+The second imbeds the information set between two sections of
+the `control' set....
+This scheme keeps the information set `pure,' locates the
+`master' space \fIand\fP the delete in pure control areas,
+but has the disadvantage of requiring a somewhat more complex
+examination to separate the controls from the information sets.''
+In spite of its additional complexity, it was the second structure,
+with printing characters in the middle and controls on either side,
+that
+was adopted.
+.SH
+An extended Fieldata
+.endSH
+.PP
+At the second April, 1961 meeting,
+several subcommittee members had reported on
+the meeting they had had the previous day
+with the Military Communication Systems Technical Committee.
+The members of that committee had informed them
+that since the military had already adopted Fieldata as its
+standard, ``an industry standard which is different from
+the [military] standard would have to present strong advantages
+over the [military] standard before it would gain acceptance
+by the military.''
+So one of the key goals at the June 7-8, 1961 X3.2 meeting
+was to design some degree of Fieldata compatibility
+into the proposed X3.2 standard.
+.PP
+The subcommittee members
+accomplished this by designing a seven-bit code (\*[Figure])
+structured in such a way that if the seventh bit was dropped,
+the resulting six-bit code
+would have the same encodings for
+the letters, digits,
+colon (:), and comma (,)
+as in Fieldata.
+The new proposal
+was actually closer to
+the modified version of Fieldata proposed by the Bell System,
+which encoded the
+exclamation point (!),
+dollar sign ($), 
+and period (.)
+as they appeared in the X3.2 proposal.
+In neither case was the compatibility perfect,
+but X3.2 Secretary Charles\~E. Macon
+felt that it was close enough
+that the subcommittee could justifiably call the new code
+``Fieldata II'' or ``Fieldata 1961.''
+He went on to say that ``it might be a point
+to our favor if we indicated that should Fieldata
+come out with a modified version which meets
+the recommendations made, that the X3-2 committee
+would be perfectly happy to adopt this standard and
+recommend it as the X3-2 standard giving a large measure,
+if not all the credit, to Fieldata.''
+.PP
+At the same time, the proposed code differed significantly
+from Fieldata in other respects, most notably
+by adding several new symbols.
+Near the bottom of column 3, following the digits,
+was an angular tilde (\*[angle-tilde]).
+This character had previously appeared in the
+STRETCH Extended Character Set for the purpose of distinguishing
+between the minus sign and hyphen, which otherwise look
+nearly identical.
+In the STRETCH code it was the hyphen that was given this new shape;
+but in the X3.2 proposal, the tilde was intended to represent the minus sign.
+Further down the column were two additional mathematical symbols:
+the multiplication sign (\(mu) and the vertical line (\*[vertical-bar])
+used to represent absolute value.
+The mathematical symbols continued into the next column, where the
+not-equal-to (\(!=) sign was added following the equals sign (=).
+And just before the alphabet were two arrows:
+the up arrow (\*[up-arrow]) used for the exponentiation operation
+in the Algol 60 programming language,
+and the left arrow symbol (\(<-) that some people
+prefered to use in place of the official Algol assignment operator (:=).
+.SH
+Fieldata abandoned
+.endSH
+.PP
+The next X3.2 meeting was held June 30, 1961,
+at the Main Navy Building in Washington, D.\~C.
+Three guests from the U.\~S. Department of Defense
+were shown the Fieldata-compatible code developed
+at the previous X3.2 meeting, as well as a second version
+of the code in which the alphabet was shifted into a different
+position such that when the code was collapsed to six bits,
+it would line up with
+the code then being proposed as a standard by the British Standards Institute
+(\*[Figure]),
+which had the possibility of becoming an international standard.
+Evidently the X3.2 members were not successful at persuading
+the military representatives that Fieldata should be amended
+to bring it closer to the X3.2 proposal,
+because all development of the X3.2 code from this point on
+used the BSI encodings for the letters.
+.PP
+Why the British Standards Institute preferred to
+have the alphabet begin in row 1
+rather than at the top of the column
+has remained somewhat mysterious.
+Hugh McGregor Ross's
+January 1961 article about the proposal
+says that ``it has been found preferable
+that letter A should have position 1, B, 2, etc., as in most
+British 5-track computer codes''\c
+.Ref ross-jan-1961
+but does give any more detail.
+The reference to 5-track codes probably provides
+the answer:
+any 6-bit code
+that can be collapsed into
+a 5-bit code with a letters and a figures case
+must be designed in such a way that character 0/0
+can be reservered for the
+.I null
+character in both cases.
+Shifting the alphabet down by one character accomplishes this.
+.PP
+At the next meeting, August 2-4, 1961,
+with a BSI-compatible code now firmly established
+as the X3.2 subcommittee's goal,
+the question of code size again came up.
+``The general conclusion,'' though,
+``was that if a recommendation were to be submitted in the near
+future, it would have to be a 7 level code.
+The design of an 8 level will involve considerable extended
+time period and a great deal of effort.''
+Also at this meeting was the first serious attempt to come up
+with a list of control characters
+to fill the huge space the 7-bit structure had made available for them.
+\*[Figure] shows the preliminary encodings of the controls
+.nr Whitmanfig \n[Figure]
+(in the right, rather than left, columns of the code, for the first
+and only time).
+.PP
+Allen\~L. Whitman of Bell Labs,
+though, was beginning to have doubts about the wisdom of
+tying Bell System teleprinter development to the X3.2 standardization effort.
+In a July letter,
+he enclosed a drawing of the keyboard that would
+correspond to the then-proposed X3.2 code
+and concluded that
+``from the standpoint of ordinary Bell System teletypewriter
+operation, this keyboard
+is in my opinion a monstrosity.''\c
+.Ref whitman-jul-12-1961
+Later he suggested
+that the Bell System should perhaps stay
+with their modified version of Fieldata for TWX teleprinter operation
+and use the X3.2 code only when transmitting computer data.\c
+.Ref whitman-aug-14-1961
+Nevertheless he continued to
+campaign to move the X3.2 code in the direction of
+what his company wanted, and
+Figure \n[Whitmanfig] includes a rearrangement he proposed
+for some of the printing
+characters to make the keyboard layout more acceptable.
+.PP
+At the same time there was still considerable pressure
+for a ``logical'' arrangement of the characters
+for computing purposes.
+\*[Figure] shows an attempted compromise,
+dated August 24, 1961,
+between 
+the data processing and keyboard requirements.
+This version of the code
+also dropped the vertical line (\*[vertical-bar])
+and exclamation point (!)
+and replaced them with less-than-
+and greater-than-or-equal-to signs
+(\(<= and \(>=).
+.PP
+At the September 14-15, 1961 meeting,
+Irving Liggett,
+who had been the X3.2 chairman from the beginning,
+resigned,
+leaving IBM with only half the representation it had previously
+had on the subcommittee,
+and Charles Macon took over as chairman pro tem.
+The attendees dropped
+the angular tilde (\*[angle-tilde]) and
+multiplication sign (\(mu)
+and replaced them
+by the at sign (@)
+and the briefly-missing exclamation point (!).
+In addition,
+they
+fleshed out
+the set of control characters,
+adding
+.Ctrl on
+and
+.Ctrl off
+controls for each of
+.Ctrl transmitter ,
+.Ctrl "recorder 1",
+and
+.Ctrl "recorder 2"
+to those in the August 4 proposal
+(but temporarily eliminating
+.Ctrl "end of address" ,
+.Ctrl "end of message" ,
+and
+.Ctrl "end of transmission" ).
+They encoded the
+.Ctrl "answer back"
+control as character 6/0
+because that character's bit pattern (1100000) would be easy
+to generate mechanically.
+They encoded the
+.Ctrl "who are you"
+control as character 0/4,
+and
+the
+.Ctrl bell
+to character 0/10,
+so that they would be Control-D and Control-J, respectively,
+on the keyboard, corresponding
+to the keyboard positions of these same functions
+in Teletype's
+International Telegraph Alphabet No. 2 equipment.
+.SH
+Brackets and backslash
+.endSH
+.PP
+Two weeks later,
+on September 28, 1961,
+Bob Bemer,
+who had attended the meeting as IBM's alternate,
+wrote to the members of the X3.2 subcommittee:
+``You may recall my saying at the meeting that I couldn't think
+of any other characters for the vulnerable positions in the alphabetic
+area'' (the characters following the alphabet).
+He suggested that the less-than-or-equal-to (\(<=),
+greater-than-or-equal-to (\(>=),
+and not-equal-to (\(!=) signs be eliminated and replaced
+by left ([) and right (]) square brackets and
+a reverse slash (\e),
+more commonly called a ``backslash.''
+These, he wrote, ``are what I would have suggested if my memory
+had been working right.''
+.PP
+These three characters had previously appeared in the STRETCH
+Extended Character Set.
+In the definition of that code,
+the backslash had been described as a ``reverse division''
+operator.
+It would be used in expressions like
+\fIa\fP\|\e\|\fIb\fP,
+which would be equivalent to the more conventionally expressed
+\fIb\|/\|a\fP.
+The reverse division
+operation can be useful for the purpose of evaluating
+continued fractions
+without the need for a large evaluation stack.
+.PP
+More recently,
+the three had been among the characters added to IBM's
+Binary Coded Decimal Interchange Code
+(as the punched card code had become known)
+at a meeting between IBM, SHARE, and GUIDE
+representatives on June 30, 1961,
+about which more will be said below.
+At that meeting, R.\~Judson,
+of the B.\~F. Goodrich company,
+had pointed out an additional to which the backslash (\e) character
+could be put:
+it could be combined with the slash (/)
+to form two-character sequences approximating the appearance
+of the logical
+.I and
+(\fC/\e\fP, \(AN)
+and logical
+.I or
+(\fC\e/\fP, \(OR)
+operators.
+.PP
+To support the inclusion of the three characters in the X3.2 code,
+Bemer cited the frequent use of the
+.I and
+and
+.I or
+operators
+and of square brackets
+in Algol programs,
+the infrequent use of less-than-or-equal-to (\(<=),
+greater-than-or-equal-to (\(>=),
+and
+not-equal-to (\(!=)
+operators in programs,
+the utility of brackets in nonmathematical text,
+and the ``reverse division'' use for the backslash.
+Evidently his arguments were persuasive, because
+the three characters appeared in the October 23, 1961
+draft of the X3.2 proposal.
+.PP
+Although Bemer is generally credited with introducing
+the backslash (\e) to computing,
+neither he nor anyone else involved with the X3.2 subcommittee
+knew that
+the character had been used at least twice before.
+A photograph in a
+1937 brochure for a Wheatstone (automatic Morse) paper tape perforator
+made by Teletype shows a backslash
+key on its keyboard,
+and the keytop remained available at least until 1945 as a spare part.
+I do not know what the character was used for at that time,
+or what Morse code pattern corresponded to it.
+In addition,
+the backslash had appeared
+in a patent applied for in 1955 by
+Horace\~S. Beattie of IBM.
+Again the use he intended for the character is not clear,
+but he encoded it as a replacement for the minus sign (\-).
+.SH
+The campaign for compatibility
+.endSH
+.PP
+When a copy of the October, 1961 draft of the proposed
+American standard reached Hugh McGregor Ross in England,
+he was encouraged to see ``that the work in America is so nearly
+compatible with that we have been doing in this country which has
+now reached the stage of being formally approved as a British Standard.''
+In a few respects, though, the American proposal was fundamentally
+incompatible with the new British standard, and he wrote to
+Bob Bemer and John Auwaerter to propose
+alterations to the American code to eliminate these problems.
+.PP
+The fundamental problem was that the British standard placed
+its control characters in the first eight rows of column 0,
+while the American proposal spread them through two entire columns,
+and arranged them in such a way that their number could not be
+reduced to eight by eliminating the higher-order bits.
+Ross proposed that the eight most important controls
+.Ctrl space , (
+.Ctrl "carriage return" ,
+.Ctrl "line feed" ,
+.Ctrl "vertical tab" ,
+.Ctrl "horizontal tab" ,
+.Ctrl "who are you" ,
+.Ctrl "lower case" ,
+and
+.Ctrl "upper case" )
+be moved into the first eight rows of column 0,
+so that a reduction to six bits would be straightforward
+even when control characters were retained.
+He also proposed that the dollar sign ($) and ampersand (&)
+should be at the bottom of row 2 or 3, rather than paired with
+a digit, so that they would not be lost in the six-bit collapse.
+.PP
+At the November 8-10, 1961 meeting,
+the X3.2 subcommittee members considered this proposal,
+but
+considered it more crucial that
+the different classes of
+control characters be apportioned to separate sections of
+the keyboard rather than to separate sections of the code table.
+Toward this end, an ad hoc committee organized by John\~B. Booth,
+the alternate member from AT&T, proposed
+a new arrangement of control characters
+(\*[Figure])
+that would place the printing and message-division controls
+on the left side of the bottom two rows of the keyboard,
+the data delimiters on the right side,
+and the auxiliary equipment controls on the top row.
+(This proposal also replaced the
+at sign (@) with the lozenge (\*[lozenge]) character, for unspecified reasons.
+This seems to be the only appearance of the lozenge in any X3.2
+code proposal.)
+.PP
+Later on November 8, though, Bloom proposed a second arrangement of controls
+(\*[Figure])
+that came closer to meeting the British requirements
+while still keeping the keyboard divided into sections.
+It did not group all the essential controls together,
+but placed gaps in their sequence in such a way that when
+the higher-order bits were stripped,
+the eight controls that remained
+could be the eight essential ones.
+(It also removed the lozenge (\*[lozenge])
+and restored the at sign (@).)
+On November 10, Booth asked for another minor rearrangement
+of these characters (\*[Figure]),
+and it was approved.
+The subcommittee members
+``concluded that we (USA) have gone a long way toward
+meeting the requirements of the U.\~K., and that they should now
+come part way toward our position.''
+.PP
+Also at this meeting (on November 8) the
+.Ctrl acknowledge
+control was reencoded as character 7/12,
+another encoding whose corresponding
+the bit pattern (1111100)
+is easy to generate mechanically.
+This placed the three special controls
+.Ctrl acknowledge ,
+.Ctrl escape ,
+and
+.Ctrl delete
+in a block at the bottom of column 7.
+Character 7/13,
+the gap in this block,
+was reserved for a future variant of
+.Ctrl escape
+that would affect all following characters
+rather than just the single character following
+.Ctrl escape .
+.PP
+It was at this meeting, on November 10,
+that the X3.2 code was first named the Proposed American
+Standard Code for Information Interchange.
+.SH
+The X3.2 European tour
+.endSH
+.PP
+While attending a conference in England,
+Henry Tholstrup
+(the X3.2 member from Friden)
+provided Hugh McGregor Ross with a copy of the new X3.2 proposal.
+Ross was disappointed to see that it still spread important controls
+through all of column 0,
+and sent a new proposal to the Americans
+on December 6, 1961,
+again suggesting that the important controls be confined to
+an eight-character block,
+but adding that it would be acceptable to have this block at
+the bottom of column 0 rather than at the top.
+.PP
+Rather than continue to try to design a code that would
+be acceptable to Europeans without any first-hand knowledge of
+what was considered essential there,
+X3.2 members
+John Auwaerter (of Teletype) and Leon Bloom (of NCR)
+made plans to spend three weeks in Europe in January, 1962
+``to get further information on the progress of standardization
+in Europe and to get a better understanding of the factors
+influencing this work''
+by visiting
+``a majority of the people in Europe who [were] active
+in the standardization of character sets and codes.''\c
+.Ref bloom-jan-30-1962
+.PP
+This was something that might more appropriately
+have been done several months earlier,
+when the International Organization for Standardization's
+Technical Committee 97 on Digital Computers and Data Processing
+Machines
+and its Working Group B on Character Sets and Coding
+met for the first time on May 18, 1961.
+But at that point,
+despite the early intention of the X3.2 subcommittee to
+have a proposal ready to present at the meeting,
+their code had been in no shape to propose as an international standard,
+and neither,
+apparently, had anyone else's.
+At the meeting the delegates from
+the United Kingdom, United States,
+France, and Germany
+all announced that they were in the process
+of developing national character code standards,
+but most of the four-hour meeting seems to have been concerned
+with determining the scope of the working group's activities
+and which countries were interested in participating.
+The details would have to be put off until the following
+Technical Committee\~97
+meeting, which was eventually scheduled
+for October, 1962.
+.PP
+In spite of this early lack of communication,
+and Hugh McGregor Ross's continuing
+dispute with the members of the X3.2 subcommittee
+over the encodings of the important control characters,
+Auwaerter and Bloom
+found that everyone they visited
+wanted to be able to come up with
+a universally acceptable compromise
+prior to the upcoming ISO meeting.
+In France they learned from Henri Feissel,
+the chirman of Working Group B,
+that only the American Standards Association (ASA),
+the British Standards Institute (BSI),
+and the European Computer Manufacturers' Association (ECMA)
+were expected to have proposals ready in time for the meeting,
+and that all three already agreed
+on the encodings for the alphabet and digits
+and that three ``national use'' characters
+should follow the alphabet.
+.PP
+At the meeting in France it was proposed that
+to resolve the remaining areas of dispute,
+the X3.2 members would attend the meeting of
+ECMA Technical Committee\~1
+already scheduled for March, 1962,
+and that an early meeting of ISO Working Group\~B
+would be scheduled for May.
+If a final compromise could be reached at the May meeting,
+it could then be translated and distributed
+in time for the ISO Technical Committee\~97
+meeting in October.
+.SH
+IBM breaks away
+.endSH
+.PP
+At the same time as the international situation
+was improving,
+major computer manufacturer
+IBM was beginning to distance itself
+from the activities of the X3.2 subcommittee.
+On June 30, 1961,
+as mentioned above,
+IBM had held a meeting for the purpose
+of expanding the set of characters
+defined by its punched card code
+for the first time in more than a decade.
+Although the minutes referred to the code
+as the ``historic IBM code,''
+and Bob Bemer,
+who called the meeting,
+was enthusiastically devoted
+to the X3.2 cause,
+the expansion of the code
+drew attention
+to the differences between it
+and the standard that X3.2 was proposing.
+.PP
+The impetus for the meeting
+came from the introduction earlier in 1961
+of an improved model of the IBM 1403 printer
+that supported interchangeable type chains.\c
+.Ref bashe-493
+In one configuration,
+the printer could print as many as 60 different
+characters,
+and the purpose of the meeting was to determine
+what additional characters the company's customers
+would like to be able to use
+that had not been in the older 48 character sets.
+.PP
+Many of the assignments were forced by
+design decisions that had already been made
+in earlier IBM equipment and software.
+The dual assignments of the
+equals sign (=),
+apostrophe ('),
+plus sign (+)
+and parentheses (\fC(\fP and \fC)\fP)
+to the same encodings as the
+number sign (#),
+at sign (@),
+ampersand (&),
+percent sign (%),
+and lozenge (\*[lozenge])
+could not be separated without
+requiring major changes to existing
+programs,
+so these had to stay in place.
+In addition,
+because some equipment
+treated several characters
+as special controls\(em\c
+the group mark (3/15),
+tape mark (0/15),
+segment mark (1/15),
+mode mark (2/15),
+record mark (1/10),
+substitute blank (1/0),
+and word separator (1/13)\(em\c
+these encodings could be
+assigned graphical representations
+(four of which would not print on the 1403)
+they would have to be ones that would
+be unlikely to be used in practice.
+.PP
+This left nine encodings
+to which genuinely useful printing characters could be assigned.
+There had been several earlier proposals
+for expanded versions of the card code,
+and all of them had agreed that it should
+include the colon (:), semicolon (;),
+and less-than (<)
+and greater-than (>)
+signs.
+Two other very common proposed additions
+were the left ([)
+and right (])
+square brackets.
+``The other three symbols,''
+the minutes record,
+``were not as readily arrived at.''
+But as mentioned above,
+R.\~Judson
+pointed out the addition
+of a single character, the backslash (\e),
+would effectively add both the logical \fIor\fP (\(OR)
+and logical \fIand\fP (\(AN)
+symbols to the set,
+and the attendees were also able to agree
+upon an up-arrow (\*[up-arrow])
+for exponentiation
+and a tilde (\*[tilde])
+that could be used to represent the
+logical \fInot\fP operator.
+The exact encodings to be assigned
+to these characters were left
+to IBM's discretion,
+and it published the result
+as the Standard BCD Interchange Code
+(\*[Figure]).
+.PP
+With a much more usable six-bit character set
+now available on its equipment,
+IBM had less motivation to support
+the X3.2 subcommittee efforts.
+In September, 1961,
+IBM's Irving Liggett resigned
+his chairmanship of the X3.2 subcommittee.
+By November,
+remaining IBM representative Howard\~J. Smith
+could report that
+``many members [of X3.2] are dubious about our corporate policy
+and feel that IBM is not acting in good faith.
+In particular,'' he wrote, ``they are extremely
+skeptical about IBM's assurances that we will implement
+or support the code.''
+.PP
+Their doubts were not unfounded.
+At a December 26, 1961
+meeting of IBM's Character Sets Committee,
+L.\~Robinson
+declared that
+any use of the proposed X3.2 code
+as an in-memory representation of characters,
+``with the realization that the IBM coding sequence
+had been violated,
+would be completely unacceptable to Data Processing,''
+in spite of the care that had been put into it
+to ensure that
+the characters that were generally used
+in sorting keys would continue to sort in the same order.
+By April, 1962,
+IBM had publically ``reversed its position from support
+to opposition and [advanced] its own code (`Hollerith')
+as a proposed ASA standard.''\c
+.Ref zenner-april-17-1962
+.SH
+The ECMA/X3.2 compromise
+.endSH
+.PP
+International cooperation turned out to
+be much easier to obtain than inter-company cooperation.
+ECMA's Technical Committee\~1 and
+ASA's X3.2 subcommittee held a joint meeting
+March 8 and 9, 1962 in Rome.
+Despite the earlier strong feelings
+about the keyboard assignments for
+control characters,
+``the X3.2 members agreed that ECMA had done a more
+thorough job in the control area and that a rearrangement
+of the controls in the 7-bit set [was] highly desirable.''
+The X3.2 delegates agreed to the division,
+as Hugh McGregor Ross had proposed,
+of the controls into four groups:
+switching system controls,
+page format controls,
+terminal equipment controls,
+and information separators.
+A seven-bit set would include all four types of controls,
+each occupying either the top or bottom half of column 0 or 1.
+A six-bit set would include only one type of controls,
+the choice of which would depend on the set's intended application.
+.PP
+As far as the printing characters were concerned,
+the encodings for the alphabet and digits
+had already been agreed upon.
+The period (.),
+slash (/),
+minus sign (\-),
+and plus sign (+)
+were placed at the bottom of column 2
+so that, with
+the digits 0 through 9
+and two other characters that could be replaced
+by characters for 10 and 11,
+they could form part of a numerically-oriented four-bit subset
+specified by the British delegation.
+The characters for the four-bit subset were split between
+columns 2 and 3
+because of the American desire to separate
+punctuation marks and digits into separate columns
+so the punctuation could sort before the alphabet
+and the digits after it.
+.PP
+ECMA's requirement was that the six-bit set
+be usable for COBOL programming,
+so the parentheses (\fC(\fP and \fC)\fP),
+comma (,),
+asterisk (*),
+ampersand (&),
+equals sign (=),
+apostrophe ('),
+and semicolon (;)
+were all positioned
+away from the top half of column 2
+so they would remain available
+after the collapse to six bits.
+The percent sign (%)
+was also needed for COBOL,
+but there was no room for it in
+the six-bit set after
+all the national-use reservations,
+which included
+replacing the question mark (?)
+with the pound sign (\(Po),
+the dollar sign ($) and colon (:)
+with 10 and 11,
+and the up-arrow (\*[up-arrow]),
+backslash (\e),
+and left-arrow (\(<-)
+with additional letters.
+The seven-bit code that emerged from the joint meeting is
+shown in \*[Figure]
+and its six bit subset in \*[Figure].
+
+
+
+
+
+
+.Caption
+Charles\~A. Phillips,
+Chairman of the X3 Committee,
+hands the proposed American Standard Code for Information Interchange
+to
+Vincent\~G. Gray,
+Secretary
+of the American Standards Association
+Miscellaneous Standards Board,
+January 24, 1963.
+From left:
+Robert\~E. Blue,
+Henry Tholstrup,
+Richard\~E. Utman,
+Vincent\~G. Gray,
+Leonard\~L. Griffin,
+Charles\~A. Phillips,
+John\~B. Booth,
+Eric\~H. Clamons,
+John\~F. Auwaerter.
+Photo reprinted from
+.I "BEMA News Bulletin" ,
+February\~1, 1963,
+with the permission of
+the Information Technology Industry Council,
+1250 Eye Street NW, Washington, DC 20005,
+web site
+.I "http://www.itic.org" .
+
+
+
+
+
+
+
+
+
+
+
+.ex
+
+
+
+.SH
+Interest from the telegraph field
+.endSH
+.PP
+Interest in a new character code was not limited to people
+working with computers.
+At the December, 1956 Plenary Assembly of the CCIT in Geneva,
+one of ``the new questions set for study [was] one related
+to a possible need for extending the facilities offered by
+the present 5-unit telegraph alphabet, perhaps by the
+introduction, under agreed conditions, of a 6-unit code.''
+In 1958, the CCITT (the organization former by the merger of the former
+CCIT and CCIF) held a conference in Warsaw to consider the issue.
+There was ``general agreement... that it was premature
+at that time to standardise a new telegraph alphabet,''\c
+.Ref renton-oct-11-1961
+but one result of the meeting was
+the determination of a list of accent
+marks that would have to appear in any code the committee
+later standardized: the
+.Code acute
+(\*[acute]),
+.Code grave
+(\*[grave]),
+.Code circumflex
+(\*[hat]),
+.Code umlaut
+(\*[umlaut]), and
+.Code tilde
+(\*[tilde]).\c
+.Ref ccitt-may-13-1963
+At its December, 1960 meeting, the CCITT
+established a Working Party responsible for
+further development of the new telegraph code.
+.PP
+In the United States, accent marks were not a concern
+but there was nevertheless interest in a six-unit code
+for telegraph use.
+In 1952, I.\~S. Coggeshall, the Director of Planning for
+Western Union's International Communications Department,
+observed that
+``a 6-unit general purpose printer would afford 2\*{6\*}\|=\|64
+combinations of characters and controls and has been proposed
+to increase the usefulness of printers in certain language
+applications.
+Among other things, it would make possible tabulators and
+back-spacers.''\c
+.Ref coggeshall-jan-1953
+But Western Union's interest in a six-unit code
+was mostly hypothetical.
+In a 1964 article,
+Fred\~W. Smith admitted that ``it appears
+doubtful that Western Union will ever adopt [a] new code
+for use in its public message service.''
+.PP
+Employees of
+its competitor AT&T had a much more concrete
+idea of the uses to which they could put a six-unit code.
+The company had plans to upgrade its manually-switched
+TWX network to direct-dial operation on August 31, 1962
+and saw the switchover as an ideal opportunity to introduce
+new equipment that would make teleprinter operation much
+more like using a standard typewriter by eliminating the
+need to shift between letters and figures cases.
+
+
+
+
+
+
+
+
+
+.SH
+Printing telegraphy before Baudot
+.endSH
+.PP
+Many people associate the word ``telegraphy'' exclusively with
+hand-sent and -transcribed
+Morse Code,
+but printing telegraphy is nearly as old a technology.
+Royal\~E. House received the U.\~S. patent for his printing
+telegraph on April 18, 1846,\c
+.Ref house-4464
+only six years after Morse's was issued.\c
+.Ref morse-1647
+The printing telegraph
+was subsequently improved by David\~E. Hughes in 1856\c
+.Ref hughes-14917
+and by George\~M. Phelps in 1859.\c
+.Ref phelps-26003
+All three of their telegraphs suffered from
+slow operation: the Phelps, the fastest,
+had an average speed of only about three characters per second.
+Skilled Morse operators could achieve faster speeds,\c
+.Ref murray-1905
+and Morse equipment was much less sensitive to
+line noise.\c
+.Ref wiring-a-continent
+Printing telegraphs also had difficulty
+keeping their sending and receiving
+equipment properly synchronized,
+and they could not be multiplexed to allow multiple
+simultaneous transmissions over the same line.
+.PP
+The main cause of all these problems was the
+printing telegraphs'
+use of a low-efficiency, variable-length
+encoding for characters.
+In Morse Code a unique pattern of signals corresponds
+to each character that can be transmitted,
+but these early printing telegraphs relied exclusively
+on timing.
+In the receiving equipment there was a continuously rotating wheel
+with the characters that could be printed arranged at
+equal intervals around the outside.
+To transmit a given character, the transmitting equipment
+would wait until the precise moment when that character
+should have rotated into place on the receiving equipment,
+and send a single short burst of electricity.
+
+
+
+
+.ex
+
+
+To write in an alphabetic script,
+how many different symbols do you need to be able to make?
+The answer might seem obvious\(em\c
+there are,
+at least for English speakers, twenty-six letters in the alphabet\(em\c
+but, in fact, writing the language in its standard form requires
+two alphabetic cases, ten digits, and several punctuation marks,
+and many additional special symbols are occasionally needed.
+It is difficult to come up with a list of these special symbols
+that is large enough to cover every possible need,
+but not so large that most of the items on it will never be used at all.
+.PP
+When you write with a pen, there is no need for such a list,
+because you can write any symbol you can think of.
+But many mechanical aids to writing\(em\c
+typewriters, telegraphs, typesetting machines, and word processors,
+for example\(em\c
+trade this flexibility for other advantages.
+Inventors of such devices have to make them capable
+of handling a wide enough range of characters to be useful,
+but not so many that their complexity becomes overwhelming.
+.PP
+Johann Gutenberg's first set of movable type
+is said to have
+contained at least 290 different characters.
+He needed this large number to reproduce as closely as possible
+the appearance of contemporary manuscripts.
+Once printing was more established, and there was less need
+to make books that looked exactly like manuscripts,
+typesetters were able to reduce the number of characters they used.
+A later printer's type case
+had room for a comparatively small 152 characters.\c
+.Ref chappell-52-53
+Early automated typesetting equipment reduced this number
+further, to 108.\c
+.Ref linotype-at-smithsonian
+.PP
+Typewriter makers were able to make do with an even smaller
+set of characters.
+Christopher Latham Sholes believed that thirty-eight
+characters were sufficient for his typewriter:
+``twenty-six letters, eight figures [the digits 0 and 1 were
+typed as letters O and I], comma,
+period, hyphen, and interrogation point.''\c
+.Ref current-36
+His first mass-produced model added six more:
+the ampersand (&), semicolon (;), colon (:), apostrophe ('),
+underline (\|_\|), and an additional symbol abandoned on later equipment.\c
+.Ref sholes-207559
+The introduction of the Shift key nearly doubled the number
+of available characters to seventy-eight, adding
+a second alphabetic case,
+quotation mark ("),
+number sign (#),
+dollar sign ($),
+percent sign (%),
+parentheses (\fC(\fP and \fC)\fP)
+and slash (/).\c
+.Ref barnes-1899
+Additional characters were slowly added over time,
+until the standard typewriter character set had finally
+expanded to eighty-six characters.\c
+.Ref X4.7-1973
+.PP
+Even fewer characters sufficed for the needs of telegraphers.
+The version of Morse Code documented in
+Samuel\~F.\~B. Morse's original 1840 telegraph patent\c
+.Ref morse-1647
+has encodings for only thirty-three characters:
+twenty-three letters and ten digits.
+The letters G and J are encoded identically, as are I and Y,
+and the letter Z cannot be encoded at all.
+Later, the international standard version of Morse Code
+expanded the list to 33 letters (the 26 used in English,
+plus accented letters \(:A, \('A/\(oA, \('E, \(~N, \(:O, \(:U,
+and a single character for CH)
+and added several punctuation marks: period (.),
+semicolon (;), comma (,), colon (:), question mark (?),
+exclamation point (!), apostrophe ('), hyphen (\-),
+parentheses (\fC(\fP and \fC)\fP), and quotation mark (").
+With ten digits and several
+additional characters for control functions
+(``error,'' ``understood,'' ``end of transmission,'' etc.)
+the number of characters totalled sixty-six.\c
+.Ref itu-1872
+.PP
+In typesetting and typewriting, and in Morse-type telegraphy
+(where characters are encoded by hand and decoded by eye or ear,
+and where different characters have different lengths),
+no number of characters is inherently superior to any other
+number, as long as it's large enough to contain all the
+necessary characters and small enough not to cause undue
+complexity.
+But in printing telegraphy (where characters are encoded
+and decoded mechanically, and where it is much easier to
+design equipment for uniform-length rather than variable-length
+codes) and in computing, there are
+special advantages associated with character sets whose
+size is a power of two.
+.PP
+In a telegraph system using two voltages (positive and negative,
+or nonzero and zero) and \fIn\fP wires,
+during a single time interval there are 2\*{\fIn\fP\*} possible
+combinations of voltages.
+Or, over a single wire, two voltage possiblities for
+\fIn\fP successive time intervals
+have the same 2\*{\fIn\fP\*} possible combinations.
+Similarly, in a binary computer,
+an \fIn\fP-bit byte can represent 2\*{\fIn\fP\*} possible values.
+In each of these cases, a character set larger than
+2\*{\fIn\fP\*}
+is too large to be represented using \fIn\fP wires, time units, or bits,
+and a set smaller than
+2\*{\fIn\fP\*}
+wastes some of the possible combinations.
+.PP
+Because of the efficiency of this representation,
+most character codes not directly descended from Morse Code
+have a uniform 5, 6, 7, or 8 units or bits per character, encoding exactly
+2\*{5\*} (32),
+2\*{6\*} (64),
+2\*{7\*} (128),
+or
+2\*{8\*} (256)
+different characters.
+It is with this class of codes that this paper is concerned.
+.PP
+The first portion of the paper will cover the origins of the two
+International Telegraph Alphabets,
+five-unit codes standardized in the 1930s.
 The second portion will cover the design and standardization
-of its successor, the seven-bit international standard code now used by the
+of their successor, the seven-bit international standard code now used by the
 majority of the world's computers and networks.
 This second topic has previously been addressed
 from different perspectives
@@ -117,60 +2324,153 @@ in a paper by Robert\~W. Bemer\c
 .Ref bemer-1972
 and a book by Charles\~E. Mackenzie.\c
 .Ref mackenzie-1980
+.\" XXX fix this paragraph
 .SH
-\('Emile Baudot
+\('Emile Baudot and the printing telegraph
 .endSH
 .PP
-On July 16, 1870,
-twenty-four-year-old
-Jean-Maurice-\('Emile Baudot (\*[Figure])
-left his parents' farm and began a new career
-in France's Administration des Postes et des T\('el\('egraphes.
-He had received only an elementary school education,
-but began studying electricity and mechanics in his spare time.
-In 1872, he started research toward a telegraph system that would
-allow multiple operators to transmit simultaneously over a single wire
-and, as the transmissions were received,
-would print them in ordinary alphabetic characters
-on a strip of paper.
-He received a patent for such a system
-on June 17, 1874.\c
-.Ref son-oeuvre harrison-1923 necrologie
-.>>>>
-.PSPIC baudot150.ps
+At the beginning of the 1870s,
+telegraph organizations using Morse Code discovered that there was
+more demand for their message transmission services
+than they could meet.\c
+.Ref crummy-hist-of-telegraph-book
+The quantity of text they could transmit over each of their
+telegraph lines was limited by:
 .sp
+.IP \(bu
+The electrical characteristics of the line,
+which would typically distort the signal if the voltage
+being transmitted changed more often than
+about every forty-fifth of a second;\c
+.Ref some-45bps-ref
+.IP \(bu
+The design of Morse Code (\*[Figure]), which used
+an average of 7.6
+of these units of time
+to represent
+each character;\c
+.Ref murray-1905
+.>>>>
+.so morse.pic
 .Caption
-\('Emile Baudot (1845-1903).\c
-.Ref son-oeuvre
+Morse Code, as originally patented\c
+.Ref morse-patent
+and as eventually standardized in the United States and internationally.\c
+.Ref itu-1872
+.<<<<
+.IP \(bu
+The dexterity of the transmitting operator,
+who might be able to operate the telegraph key fast enough
+to transmit about 30 words per minute,
+but who often might achieve only half that speed;\c
+.Ref murray-1905
+and
+.IP \(bu
+The handwriting speed of the receiving operator,
+who might be able to transcribe as many as 30 words per minute
+but often ``could understand code a lot faster than [he or she]
+could write it down.''\c
+.Ref bliven
+.sp
+.PP
+Initially, the speed of the transmitting operator
+was the limiting factor.
+Thirty words per minute,
+at a nominal five letters and one space per word, equals
+three characters per second,
+which, given the Morse average of
+7.6 units per character, works out to about 23 units per second,
+or about half the speed the line itself
+would allow.
+This waste of capacity was eliminated by the
+introduction of duplex telegraphy, which allowed
+two operators to work a single line simultaneously.\c
+.Ref duplex
+Two operators each capable of transmitting at 23 units per second together
+transmitted at a rate of 46 units per second and therefore made use of
+the full capacity of the line.
+.PP
+The only way to further increase throughput was
+to reduce the number of time units required to transmit each
+character.
+It had been known for more than two hundred years that
+purely alphabetic messages could be encoded with
+near-optimum efficiency using five units per character
+as shown in \*[Figure].\c
+.Ref early-hist-of-data-nets
+Replacing Morse Code with such a five-unit code would
+have raised the capacity of a 45-unit-per-second line to
+nine characters per second.
+But such a code would not,
+as Morse Code did, have clearly distinguished where
+one character ended and the next began, so it would have
+been nearly impossible for the receiving operators
+to decode.
+Even if the operators could have made sense of the transmissions, each of
+the two would have had to transcribe 45 words
+per minute to keep up.
+Therefore the switch to a five-unit code could only be made
+if the messages were decoded and printed automatically by machine
+instead of by hand.
+.>>>>
+.so bacon.pic
+.Caption
+Francis Bacon's five-unit code, 1623.\c
+.Ref eng-and-science early-hist-of-data-nets
 .<<<<
 .PP
-Baudot's was not the first printing telegraph,
-but it made considerably more efficient use of
-communications lines than an earlier
-system invented by David\~E. Hughes.
-Hughes's printer contained
-a continually
-rotating wheel with characters engraved on it in the order shown
-in \*[Figure].
-A character could be printed by sending a single pulse over
-the telegraph line,
-but depending on the current position of the wheel it
-might take nearly a complete rotation before the correct
-character would be ready to print.\c
-.Ref herbert-1909
-Instead of a variable delay followed by a single-unit pulse,
-Baudot's system used a uniform six time units to transmit each character.
-I have not been able to obtain a copy of Baudot's 1874 patent,
-but his early telegraph probably used the six-unit code (\*[Figure])
-that he attributes to Davy in an 1877 article.\c
-.Ref baudot-1877
+A successful printing telegraph had in fact been invented
+fifteen years earlier by
+David E. Hughes, a professor of music and natural philosophy
+at the College of Bardstown, Kentucky.\c
+.Ref encyclopaedia-britannica
+His telegraph, however, required an average of fourteen, not five,
+time units to represent each character.
+Hughes did not assign a unique code
+to each letter and symbol.
+Instead, his printer contained a continually rotating wheel
+with characters engraved on it in the order shown in \*[Figure].
+The sending equipment transmitted a character by
+waiting until the wheel had
+rotated to the correct position
+and then sending a single-unit signal to indicate that
+it was time to print the character that had just rotated into place.\c
+.Ref hughes-description
 .>>>>
 .so chart-hughes
 .Caption
-Order of characters on Hughes printing telegraph typewheel.\c
-.Ref herbert-1909
-Some equipment replaced the letter W by the accented letter \('E
-and the multiplication sign (\(mu) by a section sign (\(sc).
+Order of characters on Hughes printing telegraph typewheel
+.<<<<
+.PP
+It was
+French telegrapher Jean-Maurice-\('Emile Baudot (\*[Figure])
+who solved the problem of creating a telegraph system that
+combined multiplexing, printing, and an efficient five-unit encoding.
+Baudot was born September 11, 1845.
+His parents were farmers,
+and he spent his own early adulthood farming,
+but on July 16, 1870 he joined the
+Administration des Postes et des T\('el\('egraphes.
+He had received only an elementary school education,
+but began spending his spare time studying electrical engineering,
+and in 1872 started work on a telegraph system of his own design.
+His first printing telegraph,
+which he patented on June 17, 1874,
+used a six-unit code.
+Exactly what six-unit code it used I cannot say, because
+I have not been able to obtain a copy of the patent,
+but Baudot's published articles
+describe only one six-unit code:
+the one shown in
+\*[Figure],
+which was devised by Edward Davy in 1838 for a three-wire, three-voltage
+telegraph system,
+and this may have been the code used in Baudot's first telegraph.
+.>>>>
+.PSPIC pses/baudot150.ps
+.sp
+.Caption
+\('Emile Baudot
 .<<<<
 .>>>>
 .so chart-baudot-6
@@ -180,159 +2480,146 @@ Six-unit code (alphabet only) from an 1877 article by
 .Ref baudot-1877
 .<<<<
 .PP
-(In Figure \n[Figure],
-and in other figures to follow,
-each printable character is shown
-next to the pattern of impulses that is transmitted
-on a telegraph line to represent it.
-In this figure,
-dots (\*0) specifically
-represent the positive voltage of an idle telegraph
-line and circles (\*1) the negative voltage of
-an active line.
-In related systems using punched paper tape,
-circles represent a hole punched in the tape
-and dots the absence of a hole.)
-.PP
-It may seem surprising that Hughes and Baudot invented
-their own telegraph codes rather than designing printers that could
-work with the already-standard Morse code.
-Morse code, though, is extremely difficult to decode mechanically
-because its characters vary both in their length
-and in their pattern.
-It was not until the beginning of the twentieth century
-that F.\~G. Creed was able to develop a successful Morse printer,
-and even his invention could not print messages immediately
-as they were received, but instead required that they first
-be punched onto paper tape.\c
-.Ref creed-1929
-Hughes simplified the task by adopting a code
-in which characters varied only with time, not in their pattern.
-Baudot chose the opposite simplification: his characters had varying
-patterns but were always transmitted in the same amount of time.
-.PP
+In July of 1874, Baudot conceived of a significant improvement
+to his original design,\c
+.Ref baudot-1877
+but ran out of money with which to construct a second prototype.\c
+.Ref harrison-1923
+In June, 1875,
+the Administration des Postes et des T\('el\('egraphes
+granted him 2,000 francs with which to continue his work,
+and in December construction began on a new prototype.
+In his revised design,
+Baudot abandoned the six-unit code for a
+five-unit one (\*[Figure]).
 A six-unit code can encode 64 (2\*{6\*}) different characters,
-far more than the twenty-six letters and space that are needed,
-at a minimum, for alphabetic messages.
+far more than the twenty-six letters and space needed for purely
+alphabetic messages.
 This smaller set of characters can be encoded more efficiently
 with a five-unit code,
-which allows 32 (2\*{5\*}) combinations,
-so in 1876 Baudot redesigned his equipment to use a five-unit code.
-Punctuation and digits were still sometimes needed, though, so
-he adopted from Hughes the use of two special
-.Ctrl "letter space"
-and
+which allows 32 (2\*{5\*}) combinations.
+Since punctuation and digits were still sometimes needed,
+Baudot included in his code
+two special
 .Ctrl "figure space"
-characters that would cause the printer to shift between
-cases at the same time as it advanced the paper without printing.
-.PP
-The five-unit code he began using at this time (\*[Figure])\c
-.Ref webber-1878
-.\"   better early source?
-was structured to suit his keyboard (\*[Figure]),
-which controlled two units of each character with switches
-operated by the left hand and the other three units with the
-right hand.\c
-.Ref rothen-1884
-Such ``chorded'' keyboards have from time to time been reintroduced.\c
-.Ref owen-1978 engelbart
-The Hughes system had used a piano-like keyboard (\*[Figure]).
-The typewriter was still too new an invention to have
-any impact on the design of telegraph equipment.
+and
+.Ctrl "letter space"
+characters,
+which caused the printer to shift between cases.
+The same dual-case arrangement had previously been used in the Hughes telegraph.
 .>>>>
 .so chart-baudot
 .Caption
-\('Emile Baudot's five-unit code.\c
-.Ref webber-1878 rothen-1884 pendry-1919
+Five-unit code used on later Baudot telegraph equipment
 .<<<<
-.>>>>
-.PSPIC chorded.ps
-.sp
-.Caption
-Baudot's five-key keyboard.\c
-.Ref rothen-1884
-.<<<<
+.PP
+While the Baudot telegraph transmitted text in less time than
+the Hughes telegraph did, its operation was in a way a step backward.
+The Hughes telegraph had a piano-like keyboard (\*[Figure]),
+and operators transmitted each character by pressing
+the key corresponding to it.
+Baudot's telegraph, in contrast, used a five-key keyboard (\*[Figure]),
+and operators had to memorize the combination of keys
+that corresponded to each character.
+.\" This requirement affected the design of the code,
+.\" which Baudot arranged to facilitate memorization.
+It was probably because of the number of operators who had
+memorized it that
+Baudot never again made any changes to the code his equipment used.
+He continued to improve other aspects of his telegraph system
+until 1899, when he suffered a stroke from which he never recovered.
+He died March 28, 1903.
 .>>>>
 .so kbd-hughes
 .Caption
-Hughes printing telegraph keyboard.\c
-.Ref blavier-1867
+Hughes printing telegraph keyboard
+.<<<<
+.>>>>
+.PSPIC pses/chorded.ps
+.sp
+.Caption
+Baudot printing telegraph keyboard
 .<<<<
 .SH
+Donald Murray and the page printer
+.PP
+The Hughes and Baudot telegraphs printed their messages
+on narrow strips of paper, not on ordinary pages,
+and used keyboard designs that were not shared with
+any other type of equipment.
+This was not unreasonable at the time they were invented, but
+by the end of the nineteenth century, typewriters had
+become common office equipment,
+and journalist Donald Murray (\*[Figure]) envisioned
+a telegraph system whose transmitter would use
+the well-known typewriter keyboard
+and whose receiver would control a standard
+typewriter or even a typesetting machine.
+.>>>>
+.PSPIC pses/murray-photo.PS
+.sp
+.Caption
 Donald Murray
-.endSH
-.PP
-By 1898, though, typewriters had become much more common.
-In that year,\c
-.Ref murray-obit
-Donald Murray (\*[Figure]),
-``an Australian journalist, without prior practical
-experience in telegraph work,''\c
-.Ref vansize-1901
-invented a device which operated the keys of a typewriter or
-typesetting machine according to patterns of holes punched
-in a strip of paper tape.
-In 1899 he received a United States patent for this invention\c
-.Ref murray-patent-1899
-and came to New York, where
-he worked to develop a complete telegraph system around it
-for the Postal Telegraph-Cable Company.\c
-.Ref murray-obit mares murray-to-new-york
-.>>>>
-.PSPIC murray-photo.PS
-.sp
-.Caption
-Donald Murray (1866-1945).
-Photo provided by and reproduced courtesy of Bob Mackay.
 .<<<<
 .PP
-Murray's printer, like Baudot's telegraph, represented
-each character as a sequence of five units
-and employed special shift characters to switch between cases.
-Baudot's system had only letter and figure cases, but
-Murray's first printer had three: figures, capitals, and
-miniscules (``release'').
-To maximize the structural stability of the tape,\c
-.Ref post-office-oct-1956
-Murray arranged the characters in his code so that
-the most frequently used letters were represented by the
-fewest number of holes in the tape.
-\*[Figure] shows the codes he assigned to the letters, control characters,
-and
-.Code comma
-and
-.Code period .
-His patent unfortunately gives no indication of what characters were
-available in the figures case or in what order they were arranged.
+Murray was born in New Zealand on September 20, 1865.
+He attended the Agricultural College
+in Canterbury, New Zealand for two years beginning in 1884,
+but found that ``farming proved unsuitable''
+and, after a trip to Europe in 1886,
+became a member of the staff of the
+.I "New Zealand Herald"
+and attended New Zealand University.
+In 1891 he moved to Sydney, Australia,
+where he worked for the
+.I "Sydney Morning Herald"
+and in 1892 received a master's degree in logic from Sydney University.
+.PP
+Murray's first telegraph-related invention was a printer.
+It fed a strip of paper with holes punched in it past
+a series of pins, which decoded the patterns of holes into
+instructions to press (or, actually, to pull down from underneath)
+various keys of a typewriter.
+The section of tape corresponding to each character
+could contain from zero to five holes,
+encoding, like the five units of Baudot's telegraph,
+32 possible combinations.
+Murray's code (\*[Figure])
+differed from Baudot's in several ways, though.
+He chose to separate shifting and spacing into separate operations,
+so his printer could shift between cases in the middle of a word.
+He also provided three cases instead of two: figures,
+capital letters, and lower case letters (``release'').
+Finally, he chose to represent the most frequently used letters
+by the patterns with the fewest number of holes punched,
+either as to reduce wear on the punches
+or to improve the structural soundness
+of the paper tape.
 .>>>>
-.PSPIC murray-code.ps
-.sp
+.PSPIC pses/murray-code.ps
 .Caption
-Murray printer code, 1889.\c
-.Ref murray-patent-1899
+Murray printer code, 1899
 .<<<<
 .PP
-On January 25, 1901, William\~B. Vansize (identified as Murray's attorney
-in several of his pat\%ents)\c
-.Ref murray-patents
-described Murray's invention to the
-American Institute of Electrical Engineers, and Murray
-demonstrated the printer in operation.\c
-.Ref vansize-1901
-By this time, his equipment used a code
-(\*[Figure]a) that was almost identical to the one
-.nr Murray-fig \n[Figure]
-from 1899,
-except that the codes for the
-.Ctrl "space"
+In 1899 he received a United States patent for this invention
+and moved to New York to develop a complete telegraph system
+around it for the Postal Telegraph Company.
+On January 25, 1901, William B. Vansize
+(identified as Murray's attorney in several of his patents)
+described Murray's invention at a meeting of the American
+Institute of Electrical Engineers,
+and afterwards Murray demonstrated his printer in operation.
+The equipment he demonstrated used a code (\*[Figure]a)
+only slightly
+different from the one he had specified in his 1899 patent.
+He had reversed the codes for the
+.Ctrl space
 and
-.Ctrl "release"
-characters
-had been reversed.
-Again only the codes for the letters were listed in the paper, but
-an illustration (redrawn as \*[Figure])
-shows the keyboard positions of some of the punctuation and digits.
-These would have had the same codes as the letters with which they share keys.
+.Ctrl release
+characters, probably so that unpunched sections at the start
+and end of the tape would not cause the printer to space repeatedly,
+but would instead only cause it to shift
+harmlessly to lower case.
 .>>>>
 .so chart-murray
 .Caption
@@ -342,18 +2629,20 @@ Character assignments shown as
 .Ctrl unk
 are unknown.
 .<<<<
-.>>>>
-.so kbd-murray-1901
-.Caption
-Fragment of Murray keyboard, 1901.\c
-.Ref vansize-1901
-.<<<<
 .PP
+Neither Murray's 1899 patent nor Vansize's 1901 paper
+unfortunately specifies what characters were available
+in the figures case.
+The only clue comes from an illustration of
+(redrawn as \*[Figure]) which shows the keyboard
+positions of some punctuation and digits.
+These characters would have had the same codes as
+the letters with which they shared keys.
 It is unclear why Murray should have
 chosen this arrangement for the figures case,
 as it is not the same as that of any identifiable
 typewriter.
-It also has no connection to the key arrangement
+In particular it has no connection to the key arrangement
 of the Columbia Bar-Lock typewriter,\c
 .Ref barlock
 which Murray named
@@ -363,8 +2652,15 @@ of which can be recognized in his 1899 patent.
 Whatever its origin,
 this arrangement of punctuation and digits did not last long.
 Another patent, filed July 20, 1901, shows a new keyboard
-arrangement (\*[Figure]).\c
+arrangement (\*[Figure]),
+which again does not seem to derive from any known typewriter\c
 .Ref murray-sep-30-1902
+.>>>>
+.so kbd-murray-1901
+.Caption
+Fragment of Murray keyboard, 1901.\c
+.Ref vansize-1901
+.<<<<
 .>>>>
 .so kbd-murray-1902
 .Caption
@@ -407,19 +2703,19 @@ Murray keyboard, 1905.\c
 .Ref murray-1905
 .<<<<
 .PP
-By 1908, Murray's code and keyboard had undergone further
-changes, as can be seen in \*[Figure] and Figure \n[Murray-fig]c.\c
+By 1908, Murray had made further changes to his code and keyboard,
+as can be seen in \*[Figure] and Figure \n[Murray-fig]c.\c
 .Ref crotch-1908
-The
+He removed the
 .Code comma
-(\|,\|) was removed from the letters case
+(\|,\|) from the letters case
 (as the former capitals case had been renamed) to make room
 for a new
 .Ctrl "page"
 control character indicating the end of
 a page of text.
-The movement of the comma into the figures case required the
-rearrangement of other figures and the combination of the
+To make room for the comma in the figures case,
+he rearranged of other figures and combined the
 .Code left
 (\fC(\fP) and
 .Code right
@@ -428,7 +2724,7 @@ rearrangement of other figures and the combination of the
 into a single
 character (\|\o'()'\|).
 In 1911,
-Murray explained a further reason for the extent of the reorganization:
+Murray explained a further reason for the extent of this reorganization:
 to move the most important punctuation onto the bottom row
 of the keyboard so that the middle row of the figures case
 could be reserved for ``national use'' characters
@@ -507,13 +2803,13 @@ Krum, later joined by his son Howard, an electrical engineer,
 built his early telegraph printers around
 the Blicksenderfer and Oliver typewriters.\c
 .Ref engineering-and-science
-It appears, though, that the Hammond typewriter's ``Universal'' model
+It appears that the Hammond typewriter's ``Universal'' model
 may also have had an impact on the design of
 Morkrum equipment.
 The Morkrum keyboard (\*[Figure])
-is more similar to the Hammond
+resembles the Hammond
 keyboard (\*[Figure])
-than to that of any other identifiable typewriter,
+more closely than that of any other identifiable typewriter,
 and both machines use similar typewheel-based printing mech\%an\%isms.\c
 .Ref morkrum-1916 barlock
 .\" XXX did I really mean barlock here?
@@ -588,7 +2884,7 @@ Western Electric
 also began using this code on its telegraph equipment,
 as well as a related one
 (Figure \n[Morkrum-fig]c)
-which retained the Morkrum
+which was able to retain the Morkrum
 placement of the
 .Code apostrophe
 (\|'\|) because it contained fewer controls.\c
@@ -612,8 +2908,8 @@ become one of the exact arts.''\c
 With the experimental era at its end, there was little
 reason for the world's telegraphers to continue
 using several similar but incompatible
-five-unit codes,
-but no progress had been made toward standardization
+five-unit codes.
+Nevertheless, no progress had been made toward standardization
 as late as 1924, when the German telegraphic administration
 began publishing articles advocating the adoption
 of an international standard code.
@@ -621,7 +2917,7 @@ Later that year
 in England,
 A.\~E. Thompson and Donald Murray
 also declared their support for standardization.
-Murray had previously had the habit of referring to
+Earlier in his career, Murray had had the habit of referring to
 any five-unit code, including his own, as ``the Baudot alphabet,''\c
 .Ref murray-1911 murray-journal
 as if all five-unit codes were interchangeable,
@@ -641,7 +2937,7 @@ for the first time in Berlin.\c
 Its parent organization, the Bureau International
 de l'Union T\('e\%l\('e\%graph\%ique,
 had, decades earlier,
-standardized Morse code\c
+standardized Morse Code\c
 .Ref itu-1872
 and the list of characters that could be transmitted with Baudot equipment
 (but not their codes).\c
@@ -654,7 +2950,8 @@ was the establishment of a uniform five-unit code.
 Delegate Stahl provided a lengthy review of the characteristics of
 existing codes and proposed a new standard code (\*[Figure]) based on
 a recalculation of the frequency with which letters were used.
-The French delegation objected that this was impossible because
+The French delegation objected that adopting
+a code so different from Baudot's as a standard would be impossible because
 the operators of the many existing Baudot installations could not
 be forced to memorize a wholly new code.
 The technical subcommittee concluded that indeed, any new standard
@@ -676,10 +2973,19 @@ characters rather than separate
 and
 .Ctrl space
 codes.
-The delegation from the USSR preferred to separate the shifts
+This arrangement was thought to give more reliable operation,
+because if a shift character was corrupted in transmission and
+caused the receiving printer to shift into the wrong case, it would only
+remain there for a single word.
+With separate shift and space characters, it might be much
+longer before the next, correct, shift character was received.
+The delegation from the USSR, however, preferred to separate the shifts
 from the spaces because the Cyrillic alphabet
-has too many letters to fit only in the letters case and requires
-that five codes from the figures case be used for additional letters.
+has too many letters to fit only in the letters case.
+It requires
+that five codes from the figures case be used for additional letters,
+so it is essential to be able to shift between cases in the middle
+of a word.
 The Czechoslovakian delegation asked that the committee address
 the long-neglected problem of how to encode accented letters.
 F.\~G. Creed raised the possibility of
@@ -697,19 +3003,20 @@ The
 (\('E) and the
 .Code "superscript letter T"
 (\|\*{t\*}\|)
-would be sacrificed for
+would be sacrificed and their codes reassigned to
 the
 .Ctrl "carriage return"
 and
 .Ctrl "line feed"
-codes, respectively.
+controls, respectively.
 The
 .Code period
 (\|.\|), which had been the upper case of the superscript T,
-would replace the
+would take the place of the
 .Code semicolon
 (\|;\|).
-The following punctuation marks were considered essential to retain:
+The following punctuation marks were considered essential to retain
+and would keep the same codes as in existing Baudot equipment:
 .Code period
 (\|.\|),
 .Code comma
@@ -726,10 +3033,10 @@ The following punctuation marks were considered essential to retain:
 (\fC(\fP and \fC)\fP), and
 .Code "fraction bar"
 (\|/\|).
-Other essentials were a
+In place of other characters in the code would be added a
 .Ctrl stop
-signal and the
-two punctuation marks that were conventionally
+signal and
+two punctuation marks
 used to separate the address from
 the message (=) and to indicate the end of the message (+).
 .PP
@@ -779,11 +3086,13 @@ Some keys show replacement of standard Baudot figures
 with alternate characters by the British Post Office.
 .<<<<
 .PP
-After a break from 12:00 to 2:15
+After a mid-day break
 and further debate,
 the delegate from the Netherlands proposed that a subcommittee
+be formed to
 investigate what code was most appropriate for start-stop equipment.
-The committee adjourned and the subcommittee met from 3:20 to 5:50.
+The committee adjourned and the subcommittee met for two
+and a half hours.
 It returned with a code (\*[Figure]),
 to be known as International Telegraph Alphabet No.\~2,
 that, for the most part, combined the Baudot codes for the letters
@@ -812,7 +3121,7 @@ Proposed International Telegraph Alphabet No.\~2, June 11, 1929.\c
 .<<<<
 .PP
 The proposal to standardize two International Telegraph Alphabets was
-vigorously opposed by the USSR, so
+vigorously opposed by the USSR, though, so
 a committee continued to meet to try to come up with a better idea.\c
 .Ref ccit-1931-prelim
 On January 21, 1931, British delegate Mr. Booth
@@ -907,7 +3216,7 @@ at that time to standardise a new telegraph alphabet,''\c
 .Ref renton-oct-11-1961
 but the meeting did result in a list of the diacritical
 marks that would have to appear in any code that was
-standardized: the
+eventually standardized: the
 .Code acute
 (\*[acute]),
 .Code grave
@@ -929,7 +3238,7 @@ accented letters were not a concern
 but there was nevertheless interest in the possibility
 of a six-unit
 replacement for International Telegraph Alphabet No.\~2.
-In 1952, I.\~S. Coggesgall, the Director of Planning for
+In 1952, I.\~S. Coggeshall, the Director of Planning for
 Western Union's International Communications Department,
 observed that
 ``a 6-unit general purpose printer would afford 2\*{6\*}\|=\|64
@@ -950,7 +3259,7 @@ on August 31, 1962.\c
 It saw the transition as an ideal opportunity to introduce
 a new code that would eliminate the need to shift manually
 between letters and figures cases and would use a keyboard
-as similar as possible to that of a standard typewriter.
+as similar as possible to that of a standard electric typewriter (\*[Figure]).
 The new network would not make old equipment or codes obsolete,
 but it would allow faster connections than the old one
 for those who wanted greater speed,
@@ -959,6 +3268,12 @@ Replacement equipment designed to work at high speed
 (by AT\*(AMT's Teletype subsidiary, the company once known as Morkrum)
 would also be designed for the new code.\c
 .Ref auwaerter-may-1963
+.>>>>
+.so kbd-electric
+.Caption
+Standard electric typewriter keyboard.\c
+.Ref x4.7-1973
+.<<<<
 .PP
 \*[Figure] shows the proposed new code
 .nr Bellfig \n[Figure]
@@ -1061,7 +3376,7 @@ The
 control stands for ``who are you'' and
 causes the receiving equipment to transmit
 back information identifying itself so the sender can be sure
-he or she is sending to the correct destination.
+he or she is connected to the correct recipient.
 The character named
 .Ctrl stunt
 was intended to be used as the first
@@ -1075,15 +3390,19 @@ that performed these sorts of functions in the
 earlier Teletype Model 28.\c
 .Ref benjamin-march-1954
 .PP
-The code of Figure \n[Bellfig]
-was intentionally similar to
-a proposed U.S. military standard,
-the FIELDATA code (\*[Figure])
+To create the code in Figure \n[Bellfig],
+the Teletype designers had begun with
+the character code
+(\*[Figure])
+from
+FIELDATA,
+a proposed U.S. military standard
 designed by Captain William F. Luebbert
 of the U.S. Army Signal Research and Development Laboratory,
-but with some punctuation rearranged or replaced
-to make its keyboard more
-like that of a standard electric typewriter.
+and had then rearranged or replaced some of the punctuation
+so that their keyboard would be closer to that of a standard
+electric typewriter.\c
+.Ref auwaerter-to-boykin-dec-30-1960
 FIELDATA
 was an ``integrated family of data processing and data
 transmission equipment'' noted for the ``almost complete
@@ -1116,8 +3435,8 @@ International Telegraph Alphabet No.\~2,
 arranged in binary order.
 .<<<<
 .PP
-Unfortunately there was no other established standard
-for character codes,
+Unfortunately there was no established standard
+for character codes other than International Telegraph Alphabet No.\~2,
 despite an increasing need for one.
 In 1951, UNIVAC had been billed as ``the first
 computer which can handle both alphabetic and numerical
@@ -1148,7 +3467,8 @@ by which time at least twenty-nine incompatible codes were in use,\c
 that industry organizations
 began to show an interest in establishing a character code standard
 for computers.
-The first to make a move was the
+One of the first to formulate a possible standard was the
+.\" The first to make a move was the
 Electronic Industries Association (EIA),
 which on
 May 25, 1960
@@ -1168,14 +3488,20 @@ The X3.2 subcommittee
 .PP
 The American Standards Association (ASA)
 got involved in character code standardization
-on August 4, 1960,
-when it created the X3.2 subcommittee for
-Coded Character Sets and Data Format.
-X3.2's parent organization, the X3 committee
-for Computer and Information Processing standards,
-had been formed on January 13, 1960.
-Five other X3 subcommittees were also created in August
-to address other computer-related standards issues.\c
+on January 13, 1960,
+when it created the X3 committee
+for Computer and Information Processing Standards.
+The first item in the committee's
+charter, proposed by Robert W. Bemer of IBM,
+was to develop
+``a single standard for logical representation of characters...
+together with orderly provision for expansion and alternatives.''\c
+.Ref lee-x3-1988
+On August 4, 1960,
+it delegated this task to
+the X3.2 subcommitee for Coded Character Sets and Data Format,
+one of six subcommittees
+created to address computer-related standards issues.\c
 .Ref summary-of-activities-june-9-1961 utman-jul-1963
 The X3.2 subcommittee (or X3-2, as its name was often spelled
 until late 1961)
@@ -1201,20 +3527,25 @@ a
 .Code blank ,
 and probably about ten punctuation marks and eight business symbols.
 The meeting was also
-attended by Mr. Craig of AT\*(AMT
+A Mr. Craig of AT\*(AMT
 .\" XXX find out his name
-and Allen\~L. Whitman of Bell Laboratories,
-who presented the modified FIELDATA code
+and Allen\~L. Whitman of Bell Laboratories
+attended the meeting and
+presented the modified FIELDATA code
 described above.
-X3.2 chairman Irving Liggett was enthusiastic about it:
-``This could be the X3-2 code if we work fast enough.''\c
+Their presentation impressed
+X3.2 chairman Irving Liggett, who enthused that
+``this could be the X3-2 code if we work fast enough.''\c
 .Ref liggett-dec-7-1960
 .PP
 Many people in data processing, though,
 didn't want to standardize a FIELDATA-derived code.
 ``The computer industry representatives' most fundamental objection
 to the character arrangement in the DOD Fieldata code,''
-L.\~L. Griffin wrote, ``is that the special characters
+wrote
+L.\~L. Griffin,
+who represented the U.S. Department of Defense
+on the X3.2 subcommittee, ``is that the special characters
 (punctuation symbols) are placed higher in the code structure
 than the alphabetic characters.''\c
 .Ref griffin-may-5-1961
@@ -1229,12 +3560,12 @@ As the X3.2 code developed,
 many characters would be repeatedly relocated to satisfy
 either the data processing desire to group related characters
 together or the communications desire to arrange characters
-as they were arranged on keyboards.
+to make it convenient to construct keyboards.
 .PP
 X3.2 was, however, still officially at the stage of
 choosing what characters to standardize and would not
 decide until later in what order they should appear.
-By the January 11-12, 1961 meeting,
+By their January 11-12, 1961 meeting,
 X3.2 members were able to agree that the
 set should contain,
 in addition to the letters, digits, and blank previously agreed upon,
@@ -1272,7 +3603,7 @@ characters they thought should appear in the main
 and in what order.
 \*[Figure] and \*[Figure] are two of these proposals.
 The latter is actually cut down from a 256-character superset
-that also included lower case, Greek and Russian letters,
+that also included lower case, Greek and Cyrillic alphabets,
 and numerous special symbols.
 .\" The January 11-12 meeting also clarified
 .\" the respective roles of X3.2 and the Electronic Industries
@@ -1298,7 +3629,7 @@ The March 8-9, 1961 meeting of X3.2
 finally led to a code
 (based on a proposal by Robert\~W. Bemer,
 Howard\~J. Smith,
-and F.\~A. Williams)
+and Frank\~A. Williams)
 that nearly everyone could
 agree upon\(em\c
 but there is some disagreement about exactly what it was
@@ -1327,11 +3658,11 @@ it is
 the two codes Figure \n[Marchfig]d and \n[Marchfig]e
 that have the caption of ``the proposed standard code.''\c
 .Ref bemer-may-1961
-Of these five codes,
-the second one from the minutes (Figure \n[Marchfig]b)
-is notable for its attempt to place characters that would
-appear on the same key of a keyboard in the same row
-of columns 0 and 1.
+.\" Of these five codes,
+.\" only the second one from the minutes (Figure \n[Marchfig]b)
+.\" shows a serious attempt to place characters that would
+.\" appear on the same key of a keyboard in the same row
+.\" of columns 0 and 1.
 .\" All these codes are clearly related, but they are not the same.
 .>>>>
 .so chart-mar-8-1961
@@ -1406,7 +3737,7 @@ in the first half and 64 printing characters
 in the second half,
 the same arrangement used in a seven-bit, extended
 version of the FIELDATA code.
-But this was impossible because the
+But this proved impossible because the
 .Ctrl delete
 control character
 had to be the character with all bits set,
@@ -1441,6 +3772,7 @@ The
 .Code "angular tilde"
 (\*[angle-tilde])
 had appeared before, in IBM's June 1960 Extended Character Set (\*[Figure]),\c
+.nr ECSfig \n[Figure]
 .Ref bemer-june-1-1960 mackenzie-1980
 where it represented a hyphen, and where the
 .Code "horizontal line"
@@ -1468,11 +3800,7 @@ The
 (\*[up-arrow]) and
 .Code left
 (\(<-) arrows
-are probably in the code for the convenience of Algol programmers
-(although a 1978 article by Robert W. Bemer\c
-.Ref bemer-1978
-seems to suggest that the two characters were included at
-Teletype's request).
+are probably in the code for the convenience of Algol programmers.
 In contrast to the Fortran programming language,
 in which ``there is a separate key on the keypunching device
 for each character used in FORTRAN statements... [and]
@@ -1684,17 +4012,25 @@ as the proposal from August).
 (Honeywell representative Roy Reach's drawing of the code chart
 showed a lowercase alphabet in columns 6 and 7, an addition that
 would not officially be made until the end of 1963.)
+.PP
 According to Reach,
 the committee was ``attempting to prepare
 a report to X3 for a recommended standard Character Set by
 early November.''
 He further reported that all members were in agreement
 except Howard Smith of IBM,
-and that IBM's alternate member, Robert W. Bemer, had nevertheless
-indicated that IBM
+and that Robert\~W. Bemer, IBM's Director of Programming Standards
+and its alternate delegate to X3.2,
+had nevertheless indicated that the company
 ``would be very pleased with this proposed Character Set
 and would go along with it.''\c
 .Ref reach-sep-18-1961
+In fact,
+Bemer's continuing enthusiasm for the emerging X3.2 standard
+would cost him his job six months later,\c
+.Ref lee-bemer-interview-1982
+when opposition to the code became company policy.\c
+.Ref zenner-to-vaughan-april-17-1962
 .>>>>
 .so x3.2-sep-14-1961.code.pic
 .Caption
@@ -1747,10 +4083,13 @@ logical \fIand\fP (\(AN, \fC/\e\fP)
 and logical \fIor\fP (\(OR, \fC\e/\fP) operators,
 and by itself
 could represent a ``reverse division''
-operator, as it had in the IBM Extended Character Set.\c
+operator, as it had in the Extended Character Set (Figure \n[ECSfig]) that
+Bemer had codesigned for IBM in 1960.\c
 .Ref bemer-june-1-1960
-In addition to this prior use in computing,
-there was also a precedent for including the
+Neither Bemer nor anyone else on the X3.2 subcommittee knew it,\c
+.Ref bemer-june-26-2000
+but in addition to this prior use in computing,
+there was also a precedent for the
 .Code "reverse slash"
 in communications codes:
 a 1937 manual and 1945 parts list show the character
@@ -1816,7 +4155,7 @@ character code standards there.
 Their first destination was Paris, France,
 where they spent January 3-5.\c
 .Ref agenda-jan-62
-There they learned from H.\~Feisell,
+There they learned from Henri Feissel,
 the chairman of TC 97,
 that only three groups were likely to have
 character code proposals ready to present
@@ -2014,7 +4353,7 @@ P. Bienfait (Union Internationale des Chemins de Fer),
 E.\~G. Cluff (I.C.T., ECMA),
 and Richard Gottlieb (Olivetti, Italy),
 who would observe;
-and H.\~Feisell (Bull, France), the president of WG B.
+and Henri Feissel (Bull, France), the president of WG B.
 .>>>>
 .so german-apr-1962.code.pic
 .Caption
@@ -2249,19 +4588,12 @@ revision or withdrawal of ASCII of May 25, 1962.''
 After a seven-to-one vote (with one abstention) in favor of Booth's
 motion, discussion of the proposed code was terminated.\c
 .Ref x3.2-aug-1962
-But despite the X3.2 subcommittee's rejection
-of the ECS code,
-with several changes it eventually evolved into
-EBCDIC (\*[Figure]), the character code of
-IBM's 360 series computers.\c
-.Ref 360
-.>>>>
-.so ebcdic-1970.code.pic
-.Caption
-Extended Binary-Coded Decimal Interchange Code (EBCDIC),
-revision of August, 1970.\c
-.Ref 360
-.<<<<
+.\" But despite the X3.2 subcommittee's rejection
+.\" of the ECS code,
+.\" with several changes it eventually evolved into
+.\" EBCDIC (\*[Figure]), the character code of
+.\" IBM's 360 series computers.\c
+.\" .Ref 360
 .PP
 Meanwhile, for the existing proposal there was still the question
 of what should appear in the two rightmost columns of the seven-bit code.
@@ -2324,14 +4656,156 @@ June 17, 1963.\c
 .Ref ascii-63
 .<<<<
 .SH
-The CCITT gets involved
+The new standard in the real world
 .endSH
 .PP
-The CCITT's Working Party on the New Telegraph Alphabet,
+An official standard is only useful if it is adopted in practice.
+The CCIT had lacked the power to require that International Telegraph
+Alphabets Nos. 1 and 2 be used on any country's internal networks,
+but it had been able to enforce the use of the codes
+on the international connections between its member organizations.
+But the new code was not obligatory anywhere,
+and the American Standard even began with an explicit
+disclaimer indicating that it did ``not in any respect
+preclude anyone, whether he has approved the standard or not,
+from manufacturing, marketing, purchasing, or using products,
+processes, or procedures not conforming to the standard.''
+.PP
+Nevertheless, the code did begin to be used.
+It would have been used, if perhaps not on so large a scale,
+even if it had never succeeded in being approved as a standard,
+because Teletype had begun demonstrating,\c
+.Ref honeywell-33-demo
+and even advertising,\c
+.Ref teletype-datamation-may63
+its ASCII-compatible Model 33 teleprinter
+months before the standard it conformed to was published.
+Many computer systems already used the earlier Teletype Model 28,\c
+.Ref ctss-v1 sdc-timesharing pdp4
+even though its International Telegraph Alphabet No. 2-style
+code was badly suited to computing needs.
+The obvious superiority of the ASCII-coded Model 33,
+with its larger set of punctuation
+and its elimination of the need for shift characters,
+must have made the new model easy to sell to
+customers who would otherwise have been willing to settle for the Model 28.
+.PP
+One of these customers
+was Digital Equipment Corporation (DEC),
+which included a Model 28 Teletype with its PDP-4 computer.
+By 1964, the company
+had made Model 33s standard equipment on its
+new PDP-5\c
+.Ref pdp-5-brochure
+and PDP-6\c
+.Ref pdp-6-brochure
+computers and had extended its PDP-4 software
+to support ASCII as well as Digital's original ``FIO-DEC'' character code.\c
+.Ref canute
+.PP
+Another Model 28 user was
+the Massachusetts Institute of Technology's Project MAC,
+whose Compatible Time Sharing System (CTSS) also supported
+the various character codes of the
+IBM Selectric 1014, Friden Flexowriter,
+DEC PDP-1 console terminal, IBM 1620, and IBM Selectric 1050,
+by translating them all into
+an internal six-bit code derived from IBM's BCD character code.\c
+.Ref ctss-v1
+By June, 1964,
+fifty-two ASCII Teletypes had supplemented the
+other terminals attached to the system,\c
+.Ref fano-mac-system
+which continued to use the BCD-derived code internally
+and to translate to and from ASCII and other character codes
+when performing input and output.
+Later, some CTSS programs were rewritten to use ASCII directly
+rather than translating to and from BCD.\c
+.Ref ctss-tip
+.PP
+Some others, though, were not so eager to begin using the new code.
+IBM had shown some support for ASCII by devoting an entire
+issue of its
+.I "Data Processor"
+magazine to the code,
+but when it introduced its new 360 series of computers in April, 1964,
+they were designed to use not ASCII, but
+the Extended Binary-Coded Decimal Interchange Code (EBCDIC, \*[Figure]),
+derived from the Extended Character Set that Charles Mackenzie had proposed
+and that the X3.2 subcommittee had rejected two years earlier.\c
+.Ref 360
+Western Union also devoted a cover story in its
+.I "Technical Review"
+to ASCII, but indicated that
+``it appears doubtful that Western Union will ever adopt
+the new code for use in its public message service.''\c
+.Ref smith-april-1964
+.>>>>
+.so ebcdic-1970.code.pic
+.Caption
+Extended Binary-Coded Decimal Interchange Code (EBCDIC),
+revision of August, 1970.\c
+.Ref 360
+.<<<<
+.PP
+Those that did adopt ASCII sometimes used it in ways
+the committee that designed it had never intended.
+It made mechanical sense for the code to separate the
+.Ctrl "carriage return"
+and
+.Ctrl "line feed"
+functions into separate characters,
+but requiring two keystrokes to end each line
+is not only troublesome to type,
+but also requires extra work for a computer to decode,
+so CTSS and the DEC PDP-6 operating system
+arranged to have
+.Ctrl "carriage return"
+alone terminate their input lines.
+This was exactly the opposite of what the ISO draft
+and the ECMA standard specified:
+that if a single line terminator character was desired,
+it should be the
+.Ctrl "line feed"
+character.
+The standard also intended for the
+.Ctrl "delete"
+character to be ignored,
+because it was meant to be overpunched on top of a mistyped character,
+but DEC's software interpreted
+the character as an instruction to disregard
+the previous character typed.
+.PP
+DEC also gave new meanings to many of the control characters
+that could be generated by pressing the Control key together with a letter.
+Control-C generated the ASCII
+.Ctrl "end of message"
+character, but to a DEC system it was an instruction
+to end the currently-running job.
+Control-O in ASCII is
+.Ctrl "shift in" ,
+but the PDP-6 would interpret it as an instruction to
+throw away pending output text.
+And Control-Z is the ASCII-1963 character
+.Ctrl "information separator 2" ,
+but the DEC meaning is ``end of text'' or ``end of data.''\c
+.Ref watt-austr-1966
+.\" .PP
+.\" Other software, particularly text editors,
+.\" strayed even further from the intended meanings
+.\" of the control characters.
+.SH
+The CCITT modifies the code
+.endSH
+.PP
+Even as the real-world usage of the code evolved,
+so did its definition, when
+the CCITT's Working Party on the New Telegraph Alphabet,
 organized in December, 1960,
 finally met for the first time from May 13-15, 1963.\c
 .Ref ccitt-may-13-1963
-There was no reason to start from scratch when the ISO
+There was no reason for the CCITT to design
+a wholly new code when the ISO
 character code proposal was already so well developed,
 so it was used as a starting point.
 The ISO proposal, though, did not include the lower case alphabet
@@ -2341,7 +4815,8 @@ alphabet, but
 adding the accents as well would have
 put the total number of necessary printing characters
 and controls at 135, seven too many for a seven-bit character code.
-ISO representatives ``stated that there were certain parts
+Fortunately,
+ISO representatives admitted ``that there were certain parts
 of the 7-bit code which were `softer' than others and which
 were, therefore, more readily subject to replacement''
 so that the character count could be reduced.
@@ -2946,7 +5421,7 @@ by offering to accept the
 position 5/12 where the British were also willing to accept it.\c
 .Ref x3.2.4-june-28-1966 x3.2.4-june-29-1966
 .PP
-In the United States on May 9, 1966, D.\~A. Kerr edited
+In the United States on May 9, 1966, Doug\~A. Kerr edited
 the still unpublished revised American Standard Code
 to incorporate the new international changes.
 He took the national option to put the
@@ -3142,14 +5617,19 @@ and logical NOT
 (\*[not-sign]) respectively.''\c
 .Ref x3.2-dec-13-1966
 .PP
-These changes (which were undone in the 1977 revision of ASCII)\c
-.Ref ascii-77
+These changes
 were sufficient to gain SHARE's support
 without causing any serious incompatibility with the
 international standards,
 and X3.4-1967 (\*[Figure])
 became the United States character code standard July 5, 1967.\c
 .Ref ascii-67
+(A 1977 revision of the standard eliminated the gap placed in the
+vertical line and removed the notes from
+the exclamation point and circumflex.\c
+.Ref ascii-77
+Nevertheless, many current keyboards and displays still break
+the line in two.)
 ECMA
 had published its revised code, ECMA-6, in June.\c
 .Ref ecma-6
@@ -3173,27 +5653,96 @@ Epilogue
 .PP
 Even before X3.4-1967 was published,
 there was already interest in two more minor revisions.
-First, the ISO code had since its first draft
-allowed the use of character 0/10
-for
-.Ctrl "new line"
-as well as for
-.Ctrl "line feed" ,
-but ASCII had not.
-On July 5, 1967,
-John\~B. Booth proposed that ASCII also include this dual meaning.\c
-.Ref booth-jul-5-1967
-Second,
-prior to the publication of X3.4-1967
-the American Standards Assocation had become the
-USA Standards Institute, meaning that the code was now
-formally the USA Standard Code for Information Interchange, USASCII.
-On November 20, 1967, D.\~A. Kerr
-proposed that the code continue to be known by its traditional name, ASCII.\c
+One only concerned the name by which the 
+standard was popularly known.
+Prior to the publication of X3.4-1967,
+the American Standards Association had become
+the USA Standards Institute (USASI), which meant
+that the formal name of the code had become
+the USA Standard Code for Information Interchange, USASCII.
+At the February, 1967 meeting of the X3.2 subcommittee,
+its members approved a resolution endorsing the
+continued use of the code's traditional name, ASCII.
+On November 20, Doug\~A. Kerr proposed an amendment
+to the standard indicating that ASCII was the preferred name
+of the code but that the USASCII name was also valid.\c
 .Ref kerr-nov-20-1967
-On October 10, 1968,
-a revised USA Standard with these changes was accepted.\c
+When the revision was eventually published,
+on October 10, 1968, both names
+were listed, with no indication that either was preferred
+over the other.\c
 .Ref ascii-1968
+Later still, the USA Standards Institute changed its
+name again, to the American National Standard Institute, ANSI.
+Rather than add a third name, the 1977 revision of the standard
+only called the code ASCII.\c
+.Ref ascii-77
+.PP
+A second change to the code concerned
+the interpretation of its control characters.
+On July 5, 1967, John\~B. Booth called attention to the
+``trend in the field of keyboard-oriented devices... in which
+a single key... is associated with the combined Carriage Return
+and Line Feed operations.''
+As mentioned above, the ISO draft proposal already
+allowed character 0/10 to represent
+either
+.Ctrl "line feed"
+or
+.Ctrl "new line" ,
+so Booth proposed that the character also be given this
+dual meaning in the United States standard,\c
+.Ref booth-jul-5-1967
+and this too was included in the revised standard
+published in 1968.
+.PP
+Unfortunately, as also mentioned above,
+by this time some computer manufacturers had
+already chosen
+.Ctrl "carriage return"
+as the single character they used to represent the end of a line.
+A 1972 proposed revision of the code,
+never accepted,
+attempted to strengthen the standard's position
+by making
+.Ctrl "new line"
+the primary interpretation of character 0/10
+and
+.Ctrl "line feed"
+the alternate.\c
+.Ref prascii-1972
+The revision that was actually adopted in 1977 instead left
+.Ctrl "line feed"
+as the primary interpretation of the character
+and
+.Ctrl "new line"
+as the alternate.\c
+.Ref ascii-77
+Another revision, in 1986,
+made the reference to
+.Ctrl "new line"
+less prominent,
+admitted the possibility that a key labelled
+``new line''
+might transmit the
+.Ctrl "carriage return"
+character (0/13) instead of character 0/10,
+and noted that a future revision might eliminate the
+.Ctrl "new line"
+option entirely.\c
+.Ref ascii-86
+The issue is still not settled:
+among today's popular computers,
+those using Microsoft operating systems
+terminate lines with
+both
+.Ctrl "carriage return"
+and
+.Ctrl "line feed" ,
+Unix-derived systems use only
+.Ctrl "line feed" ,
+and the Apple Macintosh uses only
+.Ctrl "carriage return" .
 .PP
 The U.\~S. Department of Defense's MIL-STD-188
 continued to document FIELDATA through its 1969 edition,
@@ -3209,9 +5758,9 @@ ITU-T,
 the Telecommunications Standardization
 Sector of the International Telecommunication Union,
 continues to maintain the standard for
-International Telegraph Alphabet No.\~2.\c
+International Telegraph Alphabet No.\~2,\c
 .Ref itu-t-s1
-It enjoyed a brief resurgence of popularity in the mid-1970s
+which enjoyed a brief resurgence of popularity in the mid-1970s
 among computer hobbyists who discovered that five-unit teleprinters
 were available for much lower prices than
 comparable seven-bit equipment.\c
@@ -3229,12 +5778,12 @@ have made small changes to details of the code
 and removed the anachronistic six-bit code tables,
 but retain almost complete compatibility
 with the seven-bit standards published in 1967-8.
-The eight-bit ISO 8859-1\c
+The eight-bit ISO 8859\c
 .Ref iso-8859
 and ECMA-94 codes,\c
 .Ref ecma-94
 and the sixteen-bit Unicode,\c
-.Ref unicode unicode-3
+.Ref unicode-3
 are compatible supersets of the seven-bit standard.
 .SH
 Acknowledgements
@@ -3259,6 +5808,11 @@ corrected several of my misconceptions about the Baudot and Murray codes.
 Dennis Ritchie and Dan Strychalski
 encouraged my interest in the history of the ASCII code.
 Alain Roy suggested several improvements to the paper.
+Comments from the anonymous referees
+further improved the paper.
+Finally, I would like to thank Bob Bemer
+for donating to the Smithsonian many of the documents on
+which this paper is based and for critiquing a draft of the paper.
 .
 .
 .
@@ -3284,7 +5838,7 @@ Alain Roy suggested several improvements to the paper.
 .
 .
 .ds Ref:booth-jul-5-1967 J.\~B. Booth, letter to L.\~L. Griffin, July 5, 1967, \*[cbi67], box 1, folder 17.
-.ds Ref:randell-1979 Brian Randell, ``An Annotated Bibliography on the Origins of Digital Computers,'' \fIAnnals of the History of Computing\fP, vol. 1, no. 2, October, 1979, pp. 101-207.
+.ds Ref:randell-1979 ``The First Alphabetical Printing Unit,'' \fIPowers-Samas Gazette\fP, March-April, 1956, pp. 8-9, summarized in Brian Randell, ``An Annotated Bibliography on the Origins of Digital Computers,'' \fIAnnals of the History of Computing\fP, vol. 1, no. 2, October, 1979, pp. 101-207.
 .ds Ref:foster-patent Charles Foster, ``Tabulating-Machine,'' U.\~S. Patent 1,274,528, August 6, 1918.
 .ds Ref:williams-patent Robert Neil Williams, ``Tabulating-Machine and Cards Therefor,'' U.\~S. Patent 1,274,484, August 6, 1918.
 .ds Ref:douglas-june-17-1966 Mary L. Douglas, letter to John L. Little, June 17, 1966, \*[cbi81], box 20, folder 1.

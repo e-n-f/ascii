@@ -15,10 +15,10 @@
 .
 .
 .ds up-arrow \*[fixthick]\h'\\w!n!u/10u'\v'-0.4m'\D'l \\w!n!u/2u -0.3m'\D'l 0 0.9m'\v'-0.9m'\D'l \\w!n!u/2u 0.3m'\v'0.4m'\h'\\w!n!u/10u'
-.if n .ds up-arrow <img src="up-arrow.gif" alt="[up arrow]">
+.if n .ds up-arrow <img width=12 height=12 src="up-arrow.gif" alt="[up arrow]">
 .
 .ds down-arrow \*[fixthick]\h'\\w!n!u/10u'\v'-0.1m'\D'l \\w!n!u/2u 0.3m'\D'l 0 -0.9m'\v'0.9m'\D'l \\w!n!u/2u -0.3m'\v'0.1m'\h'\\w!n!u/10u'
-.if n .ds down-arrow <img src="down-arrow.gif" alt="[down arrow]">
+.if n .ds down-arrow <img width=12 height=12 src="down-arrow.gif" alt="[down arrow]">
 .
 .ds not-sign \*[fixthick]\v'-0.6m'\h'\\w!M!u/10u'\D'l \\w!M!u*8u/10u 0'\D'l 0 0.2m'\h'\\w!M!u/10u'\v'0.4m'
 .ds overline \*[fixthick]\v'-0.6m'\h'\\w!M!u/10u'\D'l \\w!M!u*8u/10u 0'\h'\\w!M!u/10u'\v'0.6m'
@@ -51,9 +51,11 @@
 .
 .
 .ds angle-tilde \*[fixthick]\h'\\w!\-!u/10u'\v'-0.1m'\D'l 0.1m -0.2m'\D'l \\w!\-!u 0'\D'l 0.1m -0.2m'\v'0.5m'\h'\\w!\-!u/10u'
-.if n .ds angle-tilde <img src="angle-tilde.gif" alt="[angular tilde]">
+.if n .ds angle-tilde <img width=12 height=12 src="angle-tilde.gif" alt="[angular-tilde]">
 .
 .ds hammond-thing \*[fixthick]\h'\\w!M!u/10u'\v'-0.2m'\D'~ 0.4m -0.1m   0.1m -0.2m   -0.1m -0.1m  -0.1m 0.1m    0m 0.5m   -0.1m 0.1m   -0.1m -0.1m  0m -0.5m'\D'l -0.1m 0'\h'0.5m'\h'\\w!M!u/10u'\v'0.5m'
+.ds lozenge \*[fixthick]\h'\\w!n!u/10u'\v'-0.6m'\D'~ 0.3m 0.1m 0.3m -0.1m'\D'~ -0.1m 0.3m 0.1m 0.3m'\D'~ -0.3m -0.1m -0.3m 0.1m'\D'~ 0.1m -0.3m -0.1m -0.3m'\h'0.6m'\v'0.6m'\h'\\w!n!u/10u*3u'
+.if n .ds lozenge <img width=12 height=12 src="lozenge.gif" alt="[lozenge]">
 .
 .\" subscript things, based on tmac.s's superscript.
 .
@@ -233,13 +235,16 @@
 .	LP
 .	sp 1
 .	ce 1
+.	if n <h2>
 .	if 1 \fBAbstract\fR
+.	if n </h2>
 .	LP
 .	sp .5
 ..
 .de my-ae
 .	LP
 .	sp 1
+.	if n <p>
 ..
 .
 .de Code
