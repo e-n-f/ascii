@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export LC_ALL=C
+
 sed 's/_\(.\)/<i>\1<\/i>/g' |
 sed 's/\(.\)\1/<b>\1<\/b>/g' |
 sed 's/<\/i><i>//g' |

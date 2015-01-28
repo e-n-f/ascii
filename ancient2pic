@@ -11,10 +11,10 @@ echo "boxwid = 3/48"
 echo "boxht = 0.05 * 12"
 echo "moveht = 1/6 + 0.05"
 
-/bin/echo -E '.ds o \h!-0.015i!\D!l 0.03i 0!\D!l 0 -0.03i!\D!l -0.03i 0!\D!l 0 0.03i!\h!0.015i!\v!0.05i!'
-/bin/echo -E '.ds . \h!-0.01i!\v!-0.015i!\D!l 0.02i 0!\h!-0.01i!\v!0.015i!\v!0.05i!'
-/bin/echo -E '.ds u6 \v!-0.05i*6u!'
-/bin/echo -E '.ds u3 \v!-0.05i*3u!'
+printf '.ds o \\h!-0.015i!\\D!l 0.03i 0!\\D!l 0 -0.03i!\\D!l -0.03i 0!\\D!l 0 0.03i!\\h!0.015i!\\v!0.05i!\n'
+printf '.ds . \\h!-0.01i!\\v!-0.015i!\\D!l 0.02i 0!\\h!-0.01i!\\v!0.015i!\\v!0.05i!\n'
+printf '.ds u6 \\v!-0.05i*6u!\n'
+printf '.ds u3 \\v!-0.05i*3u!\n'
 
 tail -n +4 ibm-ancient |
 sed 's/\(....\) \(............\) \(............\) \(......\) \(............\) \(......\) \(............\) \(............\) \(............\)/down|box invis ht moveht "\1"|box invis "\\*(u6\2"|move|box invis ht moveht "\1"|box invis "\\*(u6\3"|move|box invis ht moveht "\1"|box invis ht boxht\/2 "\\*(u3\4"|move|box invis ht moveht "\1"|box invis "\\*(u6\5"|move|box invis ht moveht "\1"|box invis ht boxht\/2 "\\*(u3\6"|move|box invis ht moveht "\1"|box invis "\\*(u6\7"|move|box invis ht moveht "\1"|box invis "\\*(u6\8"|move|box invis ht moveht "\1"|box invis "\\*(u6\9"|move up 7*boxht + 15*moveht|move right boxwid||/' | tr '|' '\012' |
