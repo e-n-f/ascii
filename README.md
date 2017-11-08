@@ -1,7 +1,7 @@
 ascii
 -----
 
-The troff source for my old "[The Evolution of Character Codes, 1874-1968](http://trafficways.org/ascii/ascii.pdf)"
+The troff source for my old "[The Evolution of Character Codes, 1874-1968](https://archive.org/details/enf-ascii)"
 paper written for IEEE Annals of the History of Computing.
 
 The text itself is in [ascii.ms](https://github.com/ericfischer/ascii/blob/master/ascii.ms).
